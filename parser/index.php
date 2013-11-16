@@ -41,6 +41,10 @@ function make_array($headers, $row)
 	{
 		$switch = sanitize_key($value);
 		switch($value){
+		case 'Primary Postal Code':
+			$array[$switch] = $row[$key];
+			$array['Location'] = get_lat_lng($row[$key]);
+			break;
 		case 'Kitchen':
 			$array[$switch] = $row[$key];
 			break;
@@ -60,10 +64,10 @@ function make_array($headers, $row)
 			$array[$switch] = array(empty($row[$key]) ? 'err' : $row[$key]);
 			break;
 		case 'Comments':
-			$array[$switch] = array(empty($row[$key]) ? 'none' : $row[$key]);
+			$array[$switch] = array(empty($row[$key]) ? 'nil' : $row[$key]);
 			break;
 		case 'Cake?':
-			$array[$switch] = empty($row[$key]) ? 'no' : $row[$key];
+			$array[$switch] = empty($row[$key]) ? 'No' : $row[$key];
 			break;
 		default:
 			$array[$switch] = $row[$key];
@@ -75,7 +79,21 @@ function make_array($headers, $row)
 
 function sanitize_key($key)
 {
-	return str_replace(array(' ', '.', ','), '', ucwords($key));
+	return str_replace(array('\n','\r',' ', '.', ','), '', ucwords($key));
+}
+
+function get_lat_lng($postcode)
+{
+	$request_url = "http://maps.googleapis.com/maps/api/geocode/json?address=".urlencode($postcode)."&sensor=true";
+	$rec = @file_get_contents($request_url);
+	$back = json_decode($rec, true);
+	if($back['status'] !== 'OK'){
+		return array();
+	}
+	return array(
+		'lat' => $back['results'][0]['geometry']['location']['lat'],
+		'lng' => $back['results'][0]['geometry']['location']['lng']
+	);
 }
 
 $out = csv_to_array("service-users.csv");
