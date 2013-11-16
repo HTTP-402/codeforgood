@@ -7,8 +7,8 @@ function csv_to_array($filename='', $delimiter=',')
 	}
 
     $header = NULL;
+	$prev = NULL;
 	$entry = array();
-	$prev = array();
     $data = array();
     if (($handle = fopen($filename, 'r')) !== FALSE)
     {
@@ -72,7 +72,6 @@ function make_array($headers, $row)
 	return $array;
 }
 
-echo "Hello";
 $test = csv_to_array("service-users.csv");
 print_r($test);
 ?>
