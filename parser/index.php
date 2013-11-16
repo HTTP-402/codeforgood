@@ -24,8 +24,8 @@ function csv_to_array($filename='', $delimiter=',')
 					$prev = $entry;
 				} else {
 					array_push($prev['Comments'], $entry['Comments'][0]);
-					array_push($prev['Meal Type'], $entry['Meal Type'][0]);
-					array_push($prev['Booking ID'], $entry['Booking ID'][0]);
+					array_push($prev['MealType'], $entry['MealType'][0]);
+					array_push($prev['BookingID'], $entry['BookingID'][0]);
 				}
 			}
         }
@@ -39,39 +39,45 @@ function make_array($headers, $row)
 	$array = array();
 	foreach($headers as $key => $value)
 	{
+		$switch = sanitize_key($value);
 		switch($value){
 		case 'Kitchen':
-			$array[$value] = $row[$key];
+			$array[$switch] = $row[$key];
 			break;
 		case 'Notes from kitchen':
-			$array[$value] = $row[$key];
+			$array[$switch] = $row[$key];
 			break;
 		case 'Route and Code':
-			$array[$value] = $row[$key];
+			$array[$switch] = $row[$key];
 			break;
 		case 'Birthdate':
-			$array[$value] = $row[$key];
+			$array[$switch] = $row[$key];
 			break;
 		case 'Meal Type':
-			$array[$value] = array(empty($row[$key]) ? 'err' : $row[$key]);
+			$array[$switch] = array(empty($row[$key]) ? 'err' : $row[$key]);
 			break;
 		case 'Booking ID':
-			$array[$value] = array(empty($row[$key]) ? 'err' : $row[$key]);
+			$array[$switch] = array(empty($row[$key]) ? 'err' : $row[$key]);
 			break;
 		case 'Comments':
-			$array[$value] = array(empty($row[$key]) ? 'none' : $row[$key]);
+			$array[$switch] = array(empty($row[$key]) ? 'none' : $row[$key]);
 			break;
 		case 'Cake?':
-			$array[$value] = empty($row[$key]) ? 'no' : $row[$key];
+			$array[$switch] = empty($row[$key]) ? 'no' : $row[$key];
 			break;
 		default:
-			$array[$value] = $row[$key];
+			$array[$switch] = $row[$key];
 			break;
 		}
 	}
 	return $array;
 }
 
-$test = csv_to_array("service-users.csv");
-print_r($test);
+function sanitize_key($key)
+{
+	return str_replace(array(' ', '.', ','), '', ucwords($key));
+}
+
+$out = csv_to_array("service-users.csv");
+print_r($out);
 ?>
