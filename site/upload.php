@@ -1,7 +1,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Food Chain Routes</title>
+  <title>Upload Routes</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width">
   <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
@@ -47,7 +47,7 @@
 	<div class="input-form">
 	<input id="filename" class="input-medium" type="text">
 	<a class="btn btn-info" onclick="$('input[id=lefile]').click();">Browse</a>
-	<button type="submit" class="btn btn-primary">Submit</button>
+	<button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-upload"></span> Upload</button>
 	</div>
 </form>
 <script type="text/javascript">
