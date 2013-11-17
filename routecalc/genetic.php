@@ -220,12 +220,7 @@ $cursor = $clusters->find();
 // Find the nodes
 $services = array();
 foreach($cursor as $cluster){
-	print_r($cluster);
     $services[] = $db->service->find(array("_id"=>$cluster[1]));
-}
-foreach($services as $service){
-	print_r($service);
-	exit();
 }
 $conn->close();
 
