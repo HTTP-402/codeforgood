@@ -119,6 +119,7 @@ function generatePopulation( $nodesArray, $numDriversMax ){
 
 function geneticAlgorithm( $kitchenLatLong_in, $nodesArray_in ){
 	// Stuff
+	global $kitchenLatLong;
 	$kitchenLatLong = $kitchenLatLong_in;
 	$nodesArray = $nodesArray_in;
 	$numDriversMax = ceil( getNumMeals( $nodesArray ) / MAX_MEALS_PER_ROUTE );
