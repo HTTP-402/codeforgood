@@ -166,6 +166,8 @@ function calcRoute() {
   var start = waypoints[0].PrimaryPostalCode; //start at selected kitchen, first node of route
   var end = waypoints[waypoints.length-1].PrimaryPostalCode; //end at last point in selected route
   
+  alert("WOW");
+  
   //for each of the rest of the points in selected route
   var i = 1;
   for(i; i < Objects.keys(waypoints).length-1; i++)
