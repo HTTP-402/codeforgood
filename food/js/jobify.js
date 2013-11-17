@@ -292,7 +292,7 @@ Jobify.Map = ( function($) {
 		$map.gmap( {
 			mapTypeId          : google.maps.MapTypeId.ROADMAP,
 			streetViewControl  : false,
-			scrollwheel        : false,
+			scrollwheel        : true,
 			center             : new google.maps.LatLng( jobifyMapSettings.center.lat, jobifyMapSettings.center.long ),
 			zoom               : jobifyMapSettings.zoom == 'auto' ? 8 : parseFloat( jobifyMapSettings.zoom ),
 			zoomControlOptions : {
