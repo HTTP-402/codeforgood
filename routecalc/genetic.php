@@ -210,7 +210,7 @@ function geneticAlgorithm( $kitchenLatLong_in, $nodesArray_in ){
 // Request data from the database
 $conn = new Mongo('mongodb://localhost');
 if (!$conn){
-	echo "failed";
+        echo "failed";
 }
 // connect to products database
 $db = $conn->products;
@@ -219,13 +219,11 @@ $clusters = $db->clusters;
 $cursor = $clusters->find();
 // Find the nodes
 $services = array();
-$index = 0;
 foreach($cursor as $cluster){
-	$services_unsplit = $db->service->find();
+        $services[$index] = $db->service->find(array("_id"=>$cluster[1]));
 }
-var_dump($services_unsplit);
+print_r($services[$index]);
 $conn->close();
-
 
 
 // Fetch kitchen data (latitude and longitude data)
