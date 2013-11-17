@@ -126,9 +126,8 @@ for($k=0;$k<count($kitchens);$k++)
 	$collections['kitchenID']=$k;
 	foreach($collection[$k] as $c)
 	{	
-		print_r($c);
-		exit();
-		$db_collection->insert($c);
+		$put = array($k,$c[2]);
+		$db_collection->insert($put);
 	}
 	echo "<br>";
 }
