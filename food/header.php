@@ -10,9 +10,9 @@
 <!--[if IE 8]>
 <html class="ie ie8" lang="en-US">
 <![endif]-->
-<!--[if !(IE 7) | !(IE 8)  ]><!-->
+<!--[if !(IE 7) | !(IE 8)  ]>
 <html lang="en-US">
-<!--<![endif]-->
+<![endif]-->
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width" />
