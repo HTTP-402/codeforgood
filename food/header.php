@@ -148,7 +148,7 @@ function initialize() {
     mapTypeId: google.maps.MapTypeId.ROADMAP,
     center: london
   }
-  map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+  map = new google.maps.Map(document.getElementById('jobify-map-canvas'), mapOptions);
   directionsDisplay.setMap(map);
 }
 
