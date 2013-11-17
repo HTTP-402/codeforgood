@@ -212,7 +212,7 @@ foreach($cursor as $cluster){
 }
 
 
-
+print "loaded thing";
 
 // Fetch kitchen data (latitude and longitude data)
 $kitchens = array();
@@ -220,13 +220,13 @@ $row = 0;
 if (($handle = fopen("../../kitchens.csv", "r")) !== FALSE) {
 	while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
 		$num = count($data);
-		$kitchenLatLong_in[$row]=array("latitude"=>$data[2],"longitude"=>$data[3]);
+		$kitchens[$row]=array("latitude"=>$data[2],"longitude"=>$data[3]);
 		$row++;
 	}
 	fclose($handle);
 }
 
-foreach($kitchens as $kitchen){
+foreach($kitchens as $kitchenLatLong_in){
 	geneticAlgorithm($kitchenLatLong_in, $services );
 }
 
