@@ -4,6 +4,8 @@ define( 'GENERATION_COUNT', 10 );
 define( 'POPULATION_COUNT', 10 );
 define( 'MAX_MEALS_PER_ROUTE', 12 );
 
+global $kitchenLatLong;
+
 function getNumMeals( $nodesArray ){
 	// HARDCODED 'TIL WE UN-HARD-CODE IT
 	return 30;
