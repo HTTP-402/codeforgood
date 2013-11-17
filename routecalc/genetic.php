@@ -219,10 +219,12 @@ $clusters = $db->clusters;
 $cursor = $clusters->find();
 // Find the nodes
 $services = array();
+$index = 0;
 foreach($cursor as $cluster){
 	$services[$index] = $db->service->find(array("_id"=>$cluster[1]));
+	$index++;
 }
-print_r($services[$index]);
+print_r($services);
 $conn->close();
 
 
