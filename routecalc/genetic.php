@@ -39,6 +39,8 @@ function routeLength( $route ){
 function fitnessSolution( $solution ){
 	$fitness = 0;
 	foreach( $solution as $routeIndex => $route ) {
+		var_dump($solution);
+		exit();
 		$fitness += routeLength($route);
 	}
 	return ( 1 / $fitness );
