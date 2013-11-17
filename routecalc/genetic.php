@@ -3,7 +3,7 @@
 define( 'GENERATION_COUNT', 10 );
 define( 'POPULATION_COUNT', 10 );
 define( 'MAX_MEALS_PER_ROUTE', 12 );
-define( 'MAX_ROUTE_STOPS', 10000 );
+define( 'MAX_ROUTE_STOPS', 15 );
 
 $kitchenLatLong = NULL;
 
@@ -220,9 +220,10 @@ $cursor = $clusters->find();
 // Find the nodes
 $services = array();
 foreach($cursor as $cluster){
-        $services[$index] = $db->service->find(array("_id"=>$cluster[1]));
+        $services[] = $db->service->find(array("_id"=>$cluster[1]));
 }
-print_r($services[$index]);
+foreach($services as $service){
+	print_r($service);
 $conn->close();
 
 
