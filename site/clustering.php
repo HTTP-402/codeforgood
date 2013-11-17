@@ -1,5 +1,48 @@
-<?php 
+<?php
 
+try {
+        // a new MongoDB connection
+        $conn = new Mongo('localhost');
+ 
+        // connect to test database
+        $db = $conn->products;
+ 
+        // a new products collection object
+        $collection = $db->service;
+ 
+        // fetch all product documents
+        $cursor = $collection->find();
+ 
+        // How many results found
+        $num_docs = $cursor->count();
+ 
+        if( $num_docs > 0 )
+        {
+                // loop over the results
+                foreach ($cursor as $obj)
+                {
+                        
+                }
+        }
+        else
+        {
+                // if no products are found, we show this message
+                echo "No products found \n";
+        }
+ 
+        // close the connection to MongoDB
+        $conn->close();
+}
+catch ( MongoConnectionException $e )
+{
+        // if there was an error, we catch and display the problem here
+        echo $e->getMessage();
+}
+catch ( MongoException $e )
+{
+        echo $e->getMessage();
+} 
+/*
 // Fetch data about users
 $users = array();
 $row = 0;
@@ -80,5 +123,5 @@ for($k=0;$k<count($kitchens);$k++)
 	echo "<br>";
 }
 
-
+*/
 ?>
