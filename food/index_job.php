@@ -60,9 +60,9 @@ function calcRoute() {
 </form>						<div class="menu-main-menu-container"><ul id="menu-main-menu" class="nav-menu-primary"><li id="menu-item-30" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children has-children menu-item-30"><a href="http://localhost.com/jobify/jobs/">Kitchens</a>
 <ul class="sub-menu" onclick="updateroutes();">
 	<!--populate with kitchens from database--> 
-    <li id="0" ><a href="http://localhost.com/jobify/job-region/palo-alto/">Albrighton Community Centre</a></li>
-	<li id="1" ><a href="http://localhost.com/jobify/job-region/san-francisco/">Acorn House</a></li>
-	<li id="2" ><a href="http://localhost.com/jobify/job-region/san-jose/">Highgate Centre</a></li>
+    <li id="0" ><a>Albrighton Community Centre</a></li>
+	<li id="1" ><a>Acorn House</a></li>
+	<li id="2" ><a>Highgate Centre</a></li>
 	
 
 </ul>
