@@ -177,7 +177,7 @@ function calcRoute() {
 
 google.maps.event.addDomListener(window, 'load', initialize);
 
-    </script>
+</script>
 	
 	<style>
       html, body, #map-canvas {
@@ -189,32 +189,6 @@ google.maps.event.addDomListener(window, 'load', initialize);
 	  
 
 	</head>
-	
-	
-	<script>
-function calcRoute() {
-  var start = document.getElementById('start').value; //start at selected kitchen, first node of route
-  var end = document.getElementById('end').value; //end at last point in selected route
-  waypoints = [];
-  //for each of the rest of the points in selected route
-  waypoints.push({
-      location: "joplin, mo", //this point
-      stopover: true
-    });
-  var request = {
-      origin:start,
-      destination:end,
-          waypoints: waypoints,
-      travelMode: google.maps.TravelMode.DRIVING
-  };
-  directionsService.route(request, function(response, status) {
-    if (status == google.maps.DirectionsStatus.OK) {
-      directionsDisplay.setDirections(response);
-    }
-
-  });
-}
-</script>
 
 <body class="home page page-id-25 page-template page-template-page-templatesjobify-php custom-background custom-font wp-job-manager-categories">
 
@@ -224,7 +198,7 @@ function calcRoute() {
 			<header id="masthead" class="site-header" role="banner">
 				<div class="container">
 					<a href="index.php" title="Food Chain" rel="home" class="site-branding">
-												<h1 class="site-title">
+						<h1 class="site-title">
 							<span>Food Chain</span>
 						</h1>
 					</a>
@@ -237,27 +211,16 @@ function calcRoute() {
         <button type="submit" id="searchsubmit"><i class="icon-search"></i></button>
     </div>
 </form>						<div class="menu-main-menu-container"><ul id="menu-main-menu" class="nav-menu-primary"><li id="menu-item-30" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children has-children menu-item-30"><a href="http://localhost.com/jobify/jobs/">Kitchens</a>
-<ul class="sub-menu" onclick="calcRoute();">
-	<!--populate with kitchens from database-->
-	<li id="menu-item-2054" class="menu-item menu-item-type-taxonomy menu-item-object-job_listing_region menu-item-2054"><a href="http://localhost.com/jobify/job-region/palo-alto/">Palo Alto</a></li>
-	<li id="menu-item-2055" class="menu-item menu-item-type-taxonomy menu-item-object-job_listing_region menu-item-2055"><a href="http://localhost.com/jobify/job-region/san-francisco/">San Francisco</a></li>
-	<li id="menu-item-2056" class="menu-item menu-item-type-taxonomy menu-item-object-job_listing_region menu-item-2056"><a href="http://localhost.com/jobify/job-region/san-jose/">San Jose</a></li>
-	<li id="menu-item-2053" class="menu-item menu-item-type-taxonomy menu-item-object-job_listing_region menu-item-2053"><a href="http://localhost.com/jobify/job-region/mountain-view/">Mountain View</a></li>
+<ul class="sub-menu" onclick="updateroutes();">
+	<!--populate with kitchens from database--> 
+    <li id="0"><a>Albrighton Community Centre</a></li>
+	<li id="1"><a>Acorn House</a></li>
+	<li id="2"><a>Highgate Centre</a></li>
 </ul>
 </li>
 
 <li id="menu-item-1783" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children has-children menu-item-1783"><a href="#">Routes</a>
 <ul class="sub-menu">
-	<!--populate with route options per kitchen, with script to auto-update-->
-	<li id="menu-item-1791" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1791"><a href="http://localhost.com/jobify/blog/">Blog</a></li>
-	<li id="menu-item-1790" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1790"><a href="http://localhost.com/jobify/jobs/">Jobs</a></li>
-	<li id="menu-item-1789" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1789"><a href="http://localhost.com/jobify/post-a-job/">Post a Job</a></li>
-	<li id="menu-item-2276" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2276"><a href="http://localhost.com/jobify/my-alerts/">My Alerts</a></li>
-	<li id="menu-item-1785" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1785"><a href="http://localhost.com/jobify/pricing-plans/">Pricing &amp; Plans</a></li>
-	<li id="menu-item-1782" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1782"><a href="http://localhost.com/jobify/testimonials/">Testimonials</a></li>
-	<li id="menu-item-1786" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1786"><a href="http://localhost.com/jobify/privacy-policy/">Privacy Policy</a></li>
-	<li id="menu-item-1787" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1787"><a href="http://localhost.com/jobify/terms-and-conditions/">Our Terms</a></li>
-	<li id="menu-item-2182" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2182"><a href="http://localhost.com/jobify/contact/">Contact</a></li>
 </ul>
 </li>
 
