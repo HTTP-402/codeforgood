@@ -24,7 +24,7 @@ try {
                 {
                     //print_r($obj['location']); 
 					echo $obj['Location'];
-					$i++
+					$i++;
                 }
   
         }
