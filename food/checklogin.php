@@ -5,8 +5,8 @@ $db_name="products"; // Database name
 $tbl_name="service"; // Table name
 
 // Define $myusername and $mypassword
-$username=stripslashes($_POST['myusername']); // username
-$password=stripslashes($_POST['mypassword']); // password
+$username=stripslashes($_GET['myusername']); // username
+$password=stripslashes($_GET['mypassword']); // password
 
 // Connect to server and select database.
 

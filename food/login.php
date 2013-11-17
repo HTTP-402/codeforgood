@@ -17,24 +17,22 @@
 				<article id="post-1671" class="post-1671 page type-page status-publish hentry instock">
 					<div class="entry-content">
 						
-						<form name="loginform" id="loginform" action="checklogin.php" method="post">
+						<form name="loginform" id="loginform" action="checklogin.php" method="get">
 							
 							<p class="login-username">
 								<label for="user_login">Username</label>
-								<input type="text" name="log" id="myusername" class="input" value="" size="20" />
+								<input type="text" name="myusername" id="myusername" class="input" value="" size="20" />
 							</p>
 							<p class="login-password">
 								<label for="user_pass">Password</label>
-								<input type="password" name="pwd" id="mypassword" class="input" value="" size="20" />
+								<input type="password" name="mypassword" id="mypassword" class="input" value="" size="20" />
 							</p>
 							<p class="has-account"><i class="icon-help-circled"></i> <a href="http://demo.astoundify.com/jobify/my-account/lost-password/">Forgot Password?</a></p>
 							<p class="login-remember"><label><input name="rememberme" type="checkbox" id="rememberme" value="forever" checked="checked" /> Remember Me</label></p>
 							<p class="login-submit">
-								<input type="submit" name="wp-submit" id="wp-submit" class="button-primary" value="Sign In" />
-								<input type="hidden" name="redirect_to" value="http://demo.astoundify.com/jobify" />
+								<input type="submit" name="submit" id="submit" class="button-primary" value="Sign In" />
 							</p>
-							
-									</form>
+								</form>
 								</div>
 							</article><!-- #post -->			
 							<div id="comments" class="comments-area">

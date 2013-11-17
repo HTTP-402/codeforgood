@@ -47,8 +47,8 @@
 </div>
 
 <script type="text/javascript">
-$('input[id=lefile]').change(function() {
-$('#filename').val($(this).val());
+jquery('input[id=lefile]').change(function() {
+jquery('#filename').val(jquery(this).val());
 });
 </script>
 

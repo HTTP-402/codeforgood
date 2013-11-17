@@ -134,49 +134,76 @@ var jobifyMapSettings = {"points":[{"job":1728,"location":["37.7598648","-122.41
 	
 	    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
     <script>
-var directionsDisplay;
-var directionsService = new google.maps.DirectionsService();
-var map;
 
 function initialize() {
-  directionsDisplay = new google.maps.DirectionsRenderer();
-  //centre on selected kitchen
-  //var kitchen = new google.maps.LatLng(,);
-  var london = new google.maps.LatLng(51.5072, 0.1275);
+	var map;
+	directionsDisplay = new google.maps.DirectionsRenderer();
+  var london = new google.maps.LatLng(51.570312, -0.032224);
   var mapOptions = {
     zoom:7,
     mapTypeId: google.maps.MapTypeId.ROADMAP,
     center: london
   }
-  map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+ map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+  
   directionsDisplay.setMap(map);
 }
 
 function calcRoute() {
-  var start = document.getElementById('start').value; //start at selected kitchen, first node of route
-  var end = document.getElementById('end').value; //end at last point in selected route
+  var start = new google.maps.LatLng(51.609936, -0.043567);
+  var end = new google.maps.LatLng(51.564206, -0.043571);
   waypoints = [];
+  
+  var routes = [
+    {
+        "Location": {
+            "lat": "51.509936",
+            "lng": "-0.029567"
+        }
+    },
+    {
+        "Location": {
+            "lat": "51.535035",
+            "lng": "0.012741"
+        }
+    },
+    {
+        "Location": {
+            "lat": "51.534446",
+            "lng": "0.007207"
+        }
+    },
+    {
+        "Location": {
+            "lat": "51.534206",
+            "lng": "-0.063571"
+        }
+    }
+];
   //for each of the rest of the points in selected route
-  waypoints.push({
-      location: "joplin, mo", //this point
+  for(var i = 0; i < routes.length; i++)
+    {
+       
+	waypoints.push({
+      location: new google.maps.LatLng(parseFloat(routes[i]["Location"]["lat"]), parseFloat(routes[i]["Location"]["lng"])), //this point
       stopover: true
     });
+	}
   var request = {
       origin:start,
       destination:end,
-          waypoints: waypoints,
+        waypoints: waypoints,
       travelMode: google.maps.TravelMode.DRIVING
   };
   directionsService.route(request, function(response, status) {
     if (status == google.maps.DirectionsStatus.OK) {
       directionsDisplay.setDirections(response);
     }
-
   });
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
-
+	
 </script>
 	
 	<style>

@@ -4,7 +4,7 @@
 <td>
 <table width="100%" border="0" cellpadding="3" cellspacing="1" bgcolor="#FFFFFF">
 <tr>
-<td colspan="3"><strong>Member Login </strong></td>
+<td colspan="3"><strong>Member Login</strong></td>
 </tr>
 <tr>
 <td width="78">Username</td>
