@@ -3,7 +3,7 @@
 define( 'GENERATION_COUNT', 10 );
 define( 'POPULATION_COUNT', 10 );
 define( 'MAX_MEALS_PER_ROUTE', 12 );
-define( 'MAX_ROUTE_STOPS', 8 );
+define( 'MAX_ROUTE_STOPS', 15 );
 
 $kitchenLatLong = NULL;
 
@@ -210,7 +210,7 @@ function geneticAlgorithm( $kitchenLatLong_in, $nodesArray_in ){
 // Request data from the database
 $conn = new Mongo('mongodb://localhost');
 if (!$conn){
-	echo "failed";
+        echo "failed";
 }
 // connect to products database
 $db = $conn->products;
@@ -219,13 +219,15 @@ $clusters = $db->clusters;
 $cursor = $clusters->find();
 // Find the nodes
 $services = array();
-$index = 0;
 foreach($cursor as $cluster){
-	$services_unsplit = $db->service->find();
+	print_r($cluster);
+        $services[] = $db->service->find(array("_id"=>$cluster[1]));
 }
-var_dump($services_unsplit);
+foreach($services as $service){
+	print_r($service);
+	exit();
+}
 $conn->close();
-
 
 
 // Fetch kitchen data (latitude and longitude data)
