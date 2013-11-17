@@ -197,11 +197,11 @@ if (!$conn){
 // connect to products database
 $db = $conn->products;
 // a new collections object
-$collections = $db->collections;
-$cursor = $collections->find();
+$clusters = $db->clusters;
+$cursor = $clusters->find();
 // Find the nodes
-foreach($cursor as $collection){
-	print_r($collection);
+foreach($cursor as $cluster){
+	print_r($cluster);
 	exit();
 }
 /*
