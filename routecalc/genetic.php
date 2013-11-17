@@ -224,6 +224,7 @@ foreach($cursor as $cluster){
 }
 foreach($services as $service){
 	print_r($service);
+}
 $conn->close();
 
 
