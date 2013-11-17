@@ -137,11 +137,11 @@ function initialize() {
   directionsDisplay = new google.maps.DirectionsRenderer();
   //centre on selected kitchen
   //var kitchen = new google.maps.LatLng(,);
-  var chicago = new google.maps.LatLng(41.850033, -87.6500523);
+  var london = new google.maps.LatLng(51.5072, 0.1275);
   var mapOptions = {
     zoom:7,
     mapTypeId: google.maps.MapTypeId.ROADMAP,
-    center: chicago
+    center: london
   }
   map = new google.maps.Map(document.getElementById('jobify-map-canvas'), mapOptions);
   directionsDisplay.setMap(map);
