@@ -207,6 +207,25 @@ function geneticAlgorithm( $kitchenLatLong_in, $nodesArray_in ){
 
 
 
+// Request data from the database
+$conn = new Mongo('mongodb://localhost');
+if (!$conn){
+	echo "failed";
+}
+// connect to products database
+$db = $conn->products;
+// a new collections object
+$clusters = $db->clusters;
+$cursor = $clusters->find();
+// Find the nodes
+$services = array();
+foreach($cursor as $cluster){
+	$services[$index] = $db->service->find(array("_id"=>$cluster[1]));
+}
+print_r($services[$index]);
+$conn->close();
+
+
 
 // Fetch kitchen data (latitude and longitude data)
 $kitchens = array();
@@ -222,23 +241,6 @@ if (($handle = fopen("../../kitchens.csv", "r")) !== FALSE) {
 
 foreach($kitchens as $kitchenLatLong_in){
 
-	// Request data from the database
-	$conn = new Mongo('mongodb://localhost');
-	if (!$conn){
-		echo "failed";
-	}
-	// connect to products database
-	$db = $conn->products;
-	// a new collections object
-	$clusters = $db->clusters;
-	$cursor = $clusters->find();
-	// Find the nodes
-	$services = array();
-	foreach($cursor as $cluster){
-		$services[] = $db->service->findOne(array("_id"=>$cluster[1]));
-	}
-	$conn->close();
-	
 	$BestSolution = geneticAlgorithm($kitchenLatLong_in, $services );
 	foreach($BestSolution as $index=>$route){
 		print $index." ".count($route)."\n";
