@@ -1,18 +1,10 @@
 <?php
-// if(!$_SESSION["logged"]){
-	// header("Location: login.php");
-// } 
+/* if(!$_SESSION["logged"]){
+	 header("Location: login.php");
+ } */
 ?>
 <!DOCTYPE html>
-<!--[if IE 7]>
-<html class="ie ie7" lang="en-US">
-<![endif]-->
-<!--[if IE 8]>
-<html class="ie ie8" lang="en-US">
-<![endif]-->
-<!--[if !IE]> -->
 <html lang="en-US">
-<!-- <![endif]-->
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width" />
