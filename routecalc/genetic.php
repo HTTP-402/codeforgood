@@ -105,7 +105,7 @@ function generateSolution( $nodesArray, $numDriversMax ){
 
 	if( !empty( $nodesArray ) ) {
 		print_r( "Reached max driver allowance, but still have nodes left" );
-		print_r( $nodesArray );
+		#print_r( $nodesArray );
 	}
 
 	return $solution;
