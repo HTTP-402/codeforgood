@@ -4,6 +4,8 @@ define( 'GENERATION_COUNT', 10 );
 define( 'POPULATION_COUNT', 10 );
 define( 'MAX_MEALS_PER_ROUTE', 12 );
 
+include("../sites/clustering.php")
+
 function getNumMeals( $nodesArray ){
 	// HARDCODED 'TIL WE UN-HARD-CODE IT
 	return 30;
@@ -182,8 +184,55 @@ function geneticAlgorithm( $kitchenLatLong_in, $nodesArray_in ){
 	}
 
 	var_dump($population);
+	return $population;
 }
 
-geneticAlgorithm();
+
+
+# ASSUMING FOR ONE GENETIC ALGORITHM RUN
+
+// Request data from the database
+$conn = new Mongo('mongodb://localhost');
+if (!$conn){
+	echo "failed";
+}
+// connect to products database
+$db = $conn->products;
+// a new collections object
+$collections = $db->collections;
+$cursor = $collections->find();
+// Find the nodes
+foreach($cursor as $collection){
+	print_r($collection);
+	exit();
+}
+'''
+
+
+
+
+
+
+$collection = $services.find();
+$collection =  $db->services$db->collections;
+
+
+
+
+// Fetch kitchen data (latitude and longitude data)
+$kitchens = array();
+$row = 0;
+if (($handle = fopen("kitchens.csv", "r")) !== FALSE) {
+	while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+		$num = count($data);
+		$kitchenLatLong_in[$row]=array($data[2],$data[3],$data[6]);
+		$row++;
+	}
+	fclose($handle);
+}
+
+foreach($kitchens as $kitchen){
+	# geneticAlgorithm($kitchenLatLong_in, $nodesArray_in);
+}'''
 
 ?>
