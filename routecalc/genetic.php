@@ -7,8 +7,11 @@ define( 'MAX_MEALS_PER_ROUTE', 12 );
 $kitchenLatLong = NULL;
 
 function getNumMeals( $nodesArray ){
-	// HARDCODED 'TIL WE UN-HARD-CODE IT
-	return 30;
+	$sum = 0;
+	foreach($nodesArray as $index=>$node){
+		$sum += intval($node["NoMeals"]);
+	}
+	return $sum;
 }
 
 function distance_between_points($lat1, $lon1, $lat2, $lon2){
