@@ -23,6 +23,8 @@ function distance_between_points($lat1, $lon1, $lat2, $lon2){
 function routeLength( $route ){
 	global $kitchenLatLong;
 	$distance = 0;
+	var_dump($route);
+	exit();
 	foreach( $route as $index => $node ){
 		if( $index == 0 ){
 			$distance += distance_between_points( $kitchenLatLong["latitude"], $kitchenLatLong["longitude"], $node["Location"]["lat"], $node["Location"]["lng"] );
