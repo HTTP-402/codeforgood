@@ -18,10 +18,12 @@ try {
  
         if( $num_docs > 0 )
         {
+				$i = 0
                 // loop over the results
                 foreach ($cursor as $obj)
                 {
-                    print_r($obj);    
+                    print_r($obj[$i++][location]);    
+					$i++
                 }
   
         }
