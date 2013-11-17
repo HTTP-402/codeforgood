@@ -141,6 +141,7 @@ function geneticAlgorithm( $kitchenLatLong_in, $nodesArray_in ){
 		$fitnesses = [];
 		for( $solution = 0; $solution < count( $population ); $solution++ ) {
 			$fitnesses[$solution] = fitnessSolution( $population[$solution] );
+			print $fitnesses[$solution];
 			if($bestScore>$fitnesses[$solution]){
 				$bestSolution = $population[$solution];
 				$bestScore = $fitnesses[$solution];
