@@ -119,14 +119,20 @@ while($set < count($users))
 		$collection[$k][]=$users[$a[0]];	
 	}
 }
+$conn = new Mongo('localhost');
+
+$db = $conn->products;
+$db_collection = $db->clusters;
+
 
 for($k=0;$k<count($kitchens);$k++)
 {
+	$collections['kitchenID']=$k;
 	foreach($collection[$k] as $c)
 	{
-		echo $c[2]."<br>";
+		$db_collection->insert($c[$k]);
 	}
 	echo "<br>";
 }
-
+$conn->close();
 ?>
