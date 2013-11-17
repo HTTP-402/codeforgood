@@ -24,7 +24,8 @@ try {
                 // loop over the results
                 foreach ($cursor as $obj)
                 {
-					$locs[$i] = $obj['Location'];
+					$locs[$i][0] = $obj['Location']['lat'];
+					$locs[$i][1] = $obj['Location']['lng'];
 					$ids[$i]= $obj['_id'];
 					$i++;
                 }
@@ -52,7 +53,7 @@ catch ( MongoException $e )
 $users = array();
 for($row=0; $row<count($locs); $row++)
 {
-	$users[$row]=array($locs[$row]['lat'], $locs[$row]['lng'], $ids[$row]);
+	$users[$row]=array($locs[$row][0], $locs[$row][1], $ids[$row]);
 }
 
 $kitchens = array();
