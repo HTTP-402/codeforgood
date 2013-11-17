@@ -22,7 +22,8 @@ try {
                 // loop over the results
                 foreach ($cursor as $obj)
                 {
-                    print_r($obj['location']);    
+                    //print_r($obj['location']); 
+					echo $obj['location'];
 					$i++
                 }
   
