@@ -19,6 +19,7 @@ function distance_between_points($lat1, $lon1, $lat2, $lon2){
 }
 
 function routeLength( $route ){
+	global $kitchenLatLong;
 	$distance = 0;
 	foreach( $route as $index => $node ){
 		if( $index == 0 ){
@@ -187,7 +188,7 @@ function geneticAlgorithm( $kitchenLatLong_in, $nodesArray_in ){
 		$population = $newPopulation;
 	}
 
-	var_dump($population);
+	var_dump(count($population));
 	return $population;
 }
 
