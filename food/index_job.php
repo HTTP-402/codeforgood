@@ -58,7 +58,7 @@ function calcRoute() {
         <button type="submit" id="searchsubmit"><i class="icon-search"></i></button>
     </div>
 </form>						<div class="menu-main-menu-container"><ul id="menu-main-menu" class="nav-menu-primary"><li id="menu-item-30" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children has-children menu-item-30"><a href="http://localhost.com/jobify/jobs/">Kitchens</a>
-<ul class="sub-menu" onclick="alert('hello')">
+<ul class="sub-menu" onclick="updateroutes();">
 	<!--populate with kitchens from database--> 
     <li id="menu-item-2054" ><a href="http://localhost.com/jobify/job-region/palo-alto/">Palo Alto</a></li>
 	<li id="menu-item-2055" ><a href="http://localhost.com/jobify/job-region/san-francisco/">San Francisco</a></li>
@@ -69,17 +69,8 @@ function calcRoute() {
 </li>
 
 <li id="menu-item-1783" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children has-children menu-item-1783"><a href="#">Routes</a>
-<ul class="sub-menu">
+<ul id="routes" class="sub-menu" onclick="calcRoute();>
 	<!--populate with route options per kitchen, with script to auto-update-->
-	<li id="menu-item-1791" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1791"><a href="http://localhost.com/jobify/blog/">Blog</a></li>
-	<li id="menu-item-1790" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1790"><a href="http://localhost.com/jobify/jobs/">Jobs</a></li>
-	<li id="menu-item-1789" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1789"><a href="http://localhost.com/jobify/post-a-job/">Post a Job</a></li>
-	<li id="menu-item-2276" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2276"><a href="http://localhost.com/jobify/my-alerts/">My Alerts</a></li>
-	<li id="menu-item-1785" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1785"><a href="http://localhost.com/jobify/pricing-plans/">Pricing &amp; Plans</a></li>
-	<li id="menu-item-1782" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1782"><a href="http://localhost.com/jobify/testimonials/">Testimonials</a></li>
-	<li id="menu-item-1786" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1786"><a href="http://localhost.com/jobify/privacy-policy/">Privacy Policy</a></li>
-	<li id="menu-item-1787" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1787"><a href="http://localhost.com/jobify/terms-and-conditions/">Our Terms</a></li>
-	<li id="menu-item-2182" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2182"><a href="http://localhost.com/jobify/contact/">Contact</a></li>
 </ul>
 </li>
 <li id="menu-item-2541" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2541"><a href="http://localhost.com/jobify/testimonials/">Uploads</a></li>
