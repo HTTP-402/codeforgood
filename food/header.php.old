@@ -1,18 +1,10 @@
 <?php
-// if(!$_SESSION["logged"]){
-	// header("Location: login.php");
-// } 
+/* if(!$_SESSION["logged"]){
+	 header("Location: login.php");
+ } */
 ?>
 <!DOCTYPE html>
-<!--[if IE 7]>
-<html class="ie ie7" lang="en-US">
-<![endif]-->
-<!--[if IE 8]>
-<html class="ie ie8" lang="en-US">
-<![endif]-->
-<!--[if !(IE 7) | !(IE 8)  ]><!-->
 <html lang="en-US">
-<!--<![endif]-->
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width" />
@@ -134,78 +126,68 @@ var jobifyMapSettings = {"points":[{"job":1728,"location":["37.7598648","-122.41
 	
 	    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
     <script>
+var directionsDisplay;
+var directionsService = new google.maps.DirectionsService();
+var map;
 
 function initialize() {
-	var map;
-	directionsDisplay = new google.maps.DirectionsRenderer();
-  var london = new google.maps.LatLng(51.570312, -0.032224);
+  directionsDisplay = new google.maps.DirectionsRenderer();
+  //centre on selected kitchen
+  //var kitchen = new google.maps.LatLng(,);
+  var london = new google.maps.LatLng(51.5072, 0.1275);
   var mapOptions = {
     zoom:7,
     mapTypeId: google.maps.MapTypeId.ROADMAP,
     center: london
   }
-
- map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions); 
-
+  map = new google.maps.Map(document.getElementById('jobify-map-canvas'), mapOptions);
   directionsDisplay.setMap(map);
 }
-
+$(document).ready(function(){ 
 function calcRoute() {
-  var start = new google.maps.LatLng(51.609936, -0.043567);
-  var end = new google.maps.LatLng(51.564206, -0.043571);
-  waypoints = [];
+  waypoints = [ { "_id" : ObjectId("5288886719142d15233c9869"), "Nickname" : "Barr", "Status(onlyDeliverToOn-service)" : "On-Service", "PrimaryPostalCode" : "E10 7NL", "Location" : { "lat" : "51.570312", "lng" : "-0.032224" }, "NoMeals": "6", "MealType" : [  "Regular / Traditional",        "Regular / Traditional",        "Regular / Traditional",        "Regular / Traditional",                                                    "Regular / Traditional",        "Regular / Traditional" ], "BookingID" : [      "500A000000DrZW7",      "500A000000DrZW7",      "500A000                                            000DrZW7",      "500A000000DrZW7",      "500A000000DrZW7",      "500A000000DrZW7" ], "Comments" : [     "No couscous or rice please. ONLY sandwi                                            ch for light meals.",   "nil",  "nil",  "Child Born 2008. Dislikes vegetables",         "Child Born 2005. Likes sausages.",     "Child Born 2001                                            " ], "Kitchen" : "", "RouteAndCode" : "", "Birthdate" : "14/09/1975", "Cake?" : "No", "NotesFromKitchen" : "" },
+{ "_id" : ObjectId("5288886719142d15233c986a"), "Nickname" : "Eric", "Status(onlyDeliverToOn-service)" : "On-Service", "PrimaryPostalCode" : "E14 8AH", "Location" : { "lat" : "51.509936", "lng" : "-0.029567" }, "NoMeals": "1", "MealType" : [  "Vegetarian" ], "BookingID" : [  "500A00000047EiL" ], "Comments" : [  "nil" ], "Kitchen" : "", "RouteAndCode" : "", "Bir                                            thdate" : "28/06/1971", "Cake?" : "No", "NotesFromKitchen" : "" },
+{ "_id" : ObjectId("5288886719142d15233c986b"), "Nickname" : "Hesh", "Status(onlyDeliverToOn-service)" : "On-Service", "PrimaryPostalCode" : "E15 3EP", "Location" : { "lat" : "51.535035", "lng" : "0.012741" }, "NoMeals" : "1", "MealType" : [  "Regular / Traditional" ], "BookingID" : [  "500A000000BOohY" ], "Comments" : [  "Likes fish and lamb. No white bread. No                                             pork. No cabbage." ], "Kitchen" : "", "RouteAndCode" : "", "Birthdate" : "05/11/1945", "Cake?" : "No", "NotesFromKitchen" : "" },
+{ "_id" : ObjectId("5288886719142d15233c986c"), "Nickname" : "Dann", "Status(onlyDeliverToOn-service)" : "Off-Service", "PrimaryPostalCode" : "E15 3LE", "Location" : { "lat" : "51.534446", "lng" : "0.007207" }, "NoMeals" : "2", "MealType" : [  "African/Afro-Caribbean",  "African/Afro-Caribbean" ], "BookingID" : [  "500A000000DXOKE",  "500A000000DXOKE" ], "Commen                                            ts" : [  "nil",  "nil" ], "Kitchen" : "", "RouteAndCode" : "", "Birthdate" : "16/06/1970", "Cake?" : "No", "NotesFromKitchen" : "" },
+{ "_id" : ObjectId("5288886719142d15233c986d"), "Nickname" : "Stac", "Status(onlyDeliverToOn-service)" : "On-Service", "PrimaryPostalCode" : "E15 3LF", "Location" : { "lat" : "51.534446", "lng" : "0.007207" }, "NoMeals" : "1", "MealType" : [  "African/Afro-Caribbean" ], "BookingID" : [  "500A000000DtNp9" ], "Comments" : [  "nil" ], "Kitchen" : "", "RouteAndCode"                                             : "", "Birthdate" : "20/11/1985", "Cake?" : "No", "NotesFromKitchen" : "" },
+{ "_id" : ObjectId("5288886719142d15233c986e"), "Nickname" : "Edmu", "Status(onlyDeliverToOn-service)" : "Pending Service", "PrimaryPostalCode" : "E16 4LB", "Location" : { "lat" : "51.523115", "lng" : "0.011999" }, "NoMeals" : "1", "MealType" : [  "Regular / Traditional" ], "BookingID" : [  "500A000000E4qbe" ], "Comments" : [  "nil" ], "Kitchen" : "", "RouteAndC                                            ode" : "", "Birthdate" : "15/08/1964", "Cake?" : "No", "NotesFromKitchen" : "" },
+{ "_id" : ObjectId("5288886719142d15233c986f"), "Nickname" : "Stev", "Status(onlyDeliverToOn-service)" : "Temporarily off Service", "PrimaryPostalCode" : "E2 8QU", "Location" : { "lat" : "51.534206", "lng" : "-0.063571"}, "NoMeals" : "1", "MealType" : [  "Diabetic" ], "BookingID" : [  "500A000000DtgmZ" ], "Comments" : [  "cholesterol lowering, diabetes" ], "Kit                                            chen" : "", "RouteAndCode" : "", "Birthdate" : "10/05/1970", "Cake?" : "No", "NotesFromKitchen" : "" },
+{ "_id" : ObjectId("5288886719142d15233c9870"), "Nickname" : "Steph", "Status(onlyDeliverToOn-service)" : "On-Service", "PrimaryPostalCode" : "E3 3GH", "Location" : { "lat" : "51.530775", "lng" : "-0.029351" }, "NoMeals": "1", "MealType" : [  "African/Afro-Caribbean" ], "BookingID" : [  "500A000000F3zzV" ], "Comments" : [  "No pork; High energy and high density                                             food" ], "Kitchen" : "", "RouteAndCode" : "", "Birthdate" : "08/11/1991", "Cake?" : "No", "NotesFromKitchen" : "" } ];
   
-  var routes = [
-    {
-        "Location": {
-            "lat": "51.509936",
-            "lng": "-0.029567"
-        }
-    },
-    {
-        "Location": {
-            "lat": "51.535035",
-            "lng": "0.012741"
-        }
-    },
-    {
-        "Location": {
-            "lat": "51.534446",
-            "lng": "0.007207"
-        }
-    },
-    {
-        "Location": {
-            "lat": "51.534206",
-            "lng": "-0.063571"
-        }
-    }
-];
+
+  var start = waypoints[0].PrimaryPostalCode; //start at selected kitchen, first node of route
+  var end = waypoints[waypoints.length-1].PrimaryPostalCode; //end at last point in selected route
+  
+  alert("WOW");
+  
   //for each of the rest of the points in selected route
-  for(var i = 0; i < routes.length; i++)
-    {
-       
-	waypoints.push({
-      location: new google.maps.LatLng(parseFloat(routes[i]["Location"]["lat"]), parseFloat(routes[i]["Location"]["lng"])), //this point
+  var i = 1;
+  for(i; i < Objects.keys(waypoints).length-1; i++)
+  {
+	  waypoints.push({
+      location: waypoints[i].PrimaryPostalCode,
       stopover: true
     });
 	}
+	alert(waypoints);
   var request = {
       origin:start,
       destination:end,
-        waypoints: waypoints,
+      waypoints: waypoints,
       travelMode: google.maps.TravelMode.DRIVING
   };
   directionsService.route(request, function(response, status) {
     if (status == google.maps.DirectionsStatus.OK) {
       directionsDisplay.setDirections(response);
     }
+
   });
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
-	
+}
 </script>
+	
 	<style>
       html, body, #map-canvas {
         height: 600px;
@@ -216,32 +198,6 @@ google.maps.event.addDomListener(window, 'load', initialize);
 	  
 
 	</head>
-	
-	
-	<script>
-function calcRoute() {
-  var start = document.getElementById('start').value; //start at selected kitchen, first node of route
-  var end = document.getElementById('end').value; //end at last point in selected route
-  waypoints = [];
-  //for each of the rest of the points in selected route
-  waypoints.push({
-      location: "joplin, mo", //this point
-      stopover: true
-    });
-  var request = {
-      origin:start,
-      destination:end,
-          waypoints: waypoints,
-      travelMode: google.maps.TravelMode.DRIVING
-  };
-  directionsService.route(request, function(response, status) {
-    if (status == google.maps.DirectionsStatus.OK) {
-      directionsDisplay.setDirections(response);
-    }
-
-  });
-}
-</script>
 
 <body class="home page page-id-25 page-template page-template-page-templatesjobify-php custom-background custom-font wp-job-manager-categories">
 
@@ -251,7 +207,7 @@ function calcRoute() {
 			<header id="masthead" class="site-header" role="banner">
 				<div class="container">
 					<a href="index.php" title="Food Chain" rel="home" class="site-branding">
-												<h1 class="site-title">
+						<h1 class="site-title">
 							<span>Food Chain</span>
 						</h1>
 					</a>
@@ -264,27 +220,16 @@ function calcRoute() {
         <button type="submit" id="searchsubmit"><i class="icon-search"></i></button>
     </div>
 </form>						<div class="menu-main-menu-container"><ul id="menu-main-menu" class="nav-menu-primary"><li id="menu-item-30" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children has-children menu-item-30"><a href="http://localhost.com/jobify/jobs/">Kitchens</a>
-<ul class="sub-menu" onclick="calcRoute();">
-	<!--populate with kitchens from database-->
-	<li id="menu-item-2054" class="menu-item menu-item-type-taxonomy menu-item-object-job_listing_region menu-item-2054"><a href="http://localhost.com/jobify/job-region/palo-alto/">Palo Alto</a></li>
-	<li id="menu-item-2055" class="menu-item menu-item-type-taxonomy menu-item-object-job_listing_region menu-item-2055"><a href="http://localhost.com/jobify/job-region/san-francisco/">San Francisco</a></li>
-	<li id="menu-item-2056" class="menu-item menu-item-type-taxonomy menu-item-object-job_listing_region menu-item-2056"><a href="http://localhost.com/jobify/job-region/san-jose/">San Jose</a></li>
-	<li id="menu-item-2053" class="menu-item menu-item-type-taxonomy menu-item-object-job_listing_region menu-item-2053"><a href="http://localhost.com/jobify/job-region/mountain-view/">Mountain View</a></li>
+<ul class="sub-menu" onclick="updateroutes();">
+	<!--populate with kitchens from database--> 
+    <li id="0"><a>Albrighton Community Centre</a></li>
+	<li id="1"><a>Acorn House</a></li>
+	<li id="2"><a>Highgate Centre</a></li>
 </ul>
 </li>
 
 <li id="menu-item-1783" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children has-children menu-item-1783"><a href="#">Routes</a>
 <ul class="sub-menu">
-	<!--populate with route options per kitchen, with script to auto-update-->
-	<li id="menu-item-1791" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1791"><a href="http://localhost.com/jobify/blog/">Blog</a></li>
-	<li id="menu-item-1790" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1790"><a href="http://localhost.com/jobify/jobs/">Jobs</a></li>
-	<li id="menu-item-1789" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1789"><a href="http://localhost.com/jobify/post-a-job/">Post a Job</a></li>
-	<li id="menu-item-2276" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2276"><a href="http://localhost.com/jobify/my-alerts/">My Alerts</a></li>
-	<li id="menu-item-1785" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1785"><a href="http://localhost.com/jobify/pricing-plans/">Pricing &amp; Plans</a></li>
-	<li id="menu-item-1782" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1782"><a href="http://localhost.com/jobify/testimonials/">Testimonials</a></li>
-	<li id="menu-item-1786" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1786"><a href="http://localhost.com/jobify/privacy-policy/">Privacy Policy</a></li>
-	<li id="menu-item-1787" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1787"><a href="http://localhost.com/jobify/terms-and-conditions/">Our Terms</a></li>
-	<li id="menu-item-2182" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2182"><a href="http://localhost.com/jobify/contact/">Contact</a></li>
 </ul>
 </li>
 

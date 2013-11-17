@@ -1,5 +1,5 @@
 <?php
-include "header.php";
+include "theheader.php";
 ?>
 
 			<div id="map-canvas-wrap">
@@ -14,5 +14,5 @@ include "header.php";
 			
 <?php
 
-include "footer.php";
+//include "footer.php";
 ?>
