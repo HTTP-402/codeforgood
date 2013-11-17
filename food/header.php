@@ -151,16 +151,38 @@ function initialize() {
   map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
   directionsDisplay.setMap(map);
 }
-
+$(document).ready(function(){ 
 function calcRoute() {
-  var start = document.getElementById('start').value; //start at selected kitchen, first node of route
-  var end = document.getElementById('end').value; //end at last point in selected route
-  waypoints = [];
+  waypoints = [ { "_id" : ObjectId("5288886719142d15233c9869"), "Nickname" : "Barr", "Status
+(onlyDeliverToOn-service)" : "On-Service", "PrimaryPostalCode" : "E10 7NL", "Location" : { "lat" : "51.570312", "lng" : "-0.032224" }, "NoMeals"                                             : "6", "MealType" : [  "Regular / Traditional",        "Regular / Traditional",        "Regular / Traditional",        "Regular / Traditional",                                                    "Regular / Traditional",        "Regular / Traditional" ], "BookingID" : [      "500A000000DrZW7",      "500A000000DrZW7",      "500A000                                            000DrZW7",      "500A000000DrZW7",      "500A000000DrZW7",      "500A000000DrZW7" ], "Comments" : [     "No couscous or rice please. ONLY sandwi                                            ch for light meals.",   "nil",  "nil",  "Child Born 2008. Dislikes vegetables",         "Child Born 2005. Likes sausages.",     "Child Born 2001                                            " ], "Kitchen" : "", "RouteAndCode" : "", "Birthdate" : "14/09/1975", "Cake?" : "No", "NotesFromKitchen" : "" }
+{ "_id" : ObjectId("5288886719142d15233c986a"), "Nickname" : "Eric", "Status
+(onlyDeliverToOn-service)" : "On-Service", "PrimaryPostalCode" : "E14 8AH", "Location" : { "lat" : "51.509936", "lng" : "-0.029567" }, "NoMeals"                                             : "1", "MealType" : [  "Vegetarian" ], "BookingID" : [  "500A00000047EiL" ], "Comments" : [  "nil" ], "Kitchen" : "", "RouteAndCode" : "", "Bir                                            thdate" : "28/06/1971", "Cake?" : "No", "NotesFromKitchen" : "" }
+{ "_id" : ObjectId("5288886719142d15233c986b"), "Nickname" : "Hesh", "Status
+(onlyDeliverToOn-service)" : "On-Service", "PrimaryPostalCode" : "E15 3EP", "Location" : { "lat" : "51.535035", "lng" : "0.012741" }, "NoMeals"                                             : "1", "MealType" : [  "Regular / Traditional" ], "BookingID" : [  "500A000000BOohY" ], "Comments" : [  "Likes fish and lamb. No white bread. No                                             pork. No cabbage." ], "Kitchen" : "", "RouteAndCode" : "", "Birthdate" : "05/11/1945", "Cake?" : "No", "NotesFromKitchen" : "" }
+{ "_id" : ObjectId("5288886719142d15233c986c"), "Nickname" : "Dann", "Status
+(onlyDeliverToOn-service)" : "Off-Service", "PrimaryPostalCode" : "E15 3LE", "Location" : { "lat" : "51.534446", "lng" : "0.007207" }, "NoMeals"                                             : "2", "MealType" : [  "African/Afro-Caribbean",  "African/Afro-Caribbean" ], "BookingID" : [  "500A000000DXOKE",  "500A000000DXOKE" ], "Commen                                            ts" : [  "nil",  "nil" ], "Kitchen" : "", "RouteAndCode" : "", "Birthdate" : "16/06/1970", "Cake?" : "No", "NotesFromKitchen" : "" }
+{ "_id" : ObjectId("5288886719142d15233c986d"), "Nickname" : "Stac", "Status
+(onlyDeliverToOn-service)" : "On-Service", "PrimaryPostalCode" : "E15 3LF", "Location" : { "lat" : "51.534446", "lng" : "0.007207" }, "NoMeals"                                             : "1", "MealType" : [  "African/Afro-Caribbean" ], "BookingID" : [  "500A000000DtNp9" ], "Comments" : [  "nil" ], "Kitchen" : "", "RouteAndCode"                                             : "", "Birthdate" : "20/11/1985", "Cake?" : "No", "NotesFromKitchen" : "" }
+{ "_id" : ObjectId("5288886719142d15233c986e"), "Nickname" : "Edmu", "Status
+(onlyDeliverToOn-service)" : "Pending Service", "PrimaryPostalCode" : "E16 4LB", "Location" : { "lat" : "51.523115", "lng" : "0.011999" }, "NoMe                                            als" : "1", "MealType" : [  "Regular / Traditional" ], "BookingID" : [  "500A000000E4qbe" ], "Comments" : [  "nil" ], "Kitchen" : "", "RouteAndC                                            ode" : "", "Birthdate" : "15/08/1964", "Cake?" : "No", "NotesFromKitchen" : "" }
+{ "_id" : ObjectId("5288886719142d15233c986f"), "Nickname" : "Stev", "Status
+(onlyDeliverToOn-service)" : "Temporarily off Service", "PrimaryPostalCode" : "E2 8QU", "Location" : { "lat" : "51.534206", "lng" : "-0.063571"                                             }, "NoMeals" : "1", "MealType" : [  "Diabetic" ], "BookingID" : [  "500A000000DtgmZ" ], "Comments" : [  "cholesterol lowering, diabetes" ], "Kit                                            chen" : "", "RouteAndCode" : "", "Birthdate" : "10/05/1970", "Cake?" : "No", "NotesFromKitchen" : "" }
+{ "_id" : ObjectId("5288886719142d15233c9870"), "Nickname" : "Steph", "Status
+(onlyDeliverToOn-service)" : "On-Service", "PrimaryPostalCode" : "E3 3GH", "Location" : { "lat" : "51.530775", "lng" : "-0.029351" }, "NoMeals"                                             : "1", "MealType" : [  "African/Afro-Caribbean" ], "BookingID" : [  "500A000000F3zzV" ], "Comments" : [  "No pork; High energy and high density                                             food" ], "Kitchen" : "", "RouteAndCode" : "", "Birthdate" : "08/11/1991", "Cake?" : "No", "NotesFromKitchen" : "" } ];
+  
+  
+  var start = waypoints[0]; //start at selected kitchen, first node of route
+  var end = waypoints[waypoints.length-1]; //end at last point in selected route
+  
   //for each of the rest of the points in selected route
-  waypoints.push({
-      location: "joplin, mo", //this point
+  var i = 1;
+  for(i; i < Objects.keys(waypoints).length; i++)
+  {
+	  waypoints.push({
+      location: new google.maps.LatLng(waypoints[i]['Location']['lat'],waypoints[i]['Location']['lng']);
       stopover: true
     });
+	}
   var request = {
       origin:start,
       destination:end,
@@ -173,7 +195,7 @@ function calcRoute() {
     }
 
   });
-}
+}}
 
 google.maps.event.addDomListener(window, 'load', initialize);
 
