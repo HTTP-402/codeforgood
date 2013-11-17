@@ -222,6 +222,7 @@ $services = array();
 foreach($cursor as $cluster){
     $services[] = $db->service->find(array("_id"=>$cluster[1]));
 }
+var_dump($services);
 $conn->close();
 
 
