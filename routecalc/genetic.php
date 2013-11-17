@@ -21,8 +21,6 @@ function distance_between_points($lat1, $lon1, $lat2, $lon2){
 }
 
 function routeLength( $route ){
-	var_dump($route);
-	exit();
 	global $kitchenLatLong;
 	$distance = 0;
 	foreach( $route as $index => $node ){
@@ -39,8 +37,6 @@ function routeLength( $route ){
 function fitnessSolution( $solution ){
 	$fitness = 0;
 	foreach( $solution as $routeIndex => $route ) {
-		var_dump($solution);
-		exit();
 		$fitness += routeLength($route);
 	}
 	return ( 1 / $fitness );
@@ -135,7 +131,8 @@ function geneticAlgorithm( $kitchenLatLong_in, $nodesArray_in ){
 
 	// Generate the population
 	$population = generatePopulation( $nodesArray, $numDriversMax );
-
+	var_dump($population);
+	exit();
 	print "pop gen";
 
 	for( $gen=0; $gen < GENERATION_COUNT; $gen++ ){
