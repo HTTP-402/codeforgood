@@ -178,7 +178,7 @@ function geneticAlgorithm( $kitchenLatLong_in, $nodesArray_in ){
 			$fitness2 = fitnessSolution( $solution2 );
 
 			// Take a route from one solution and swap it with one for another.
-			$randIndex = rand(0,count($solution1));
+			$randIndex = rand(0,count($solution1)-1);
 			$temp = $solution1[$randIndex];
 			$solution1[$randIndex] = $solution2[$randIndex];
 			$solution2[$randIndex] = $temp;
