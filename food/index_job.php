@@ -4,7 +4,30 @@ include "header.php";
 ?>
 
 
+<script>
+function calcRoute() {
+  var start = document.getElementById('start').value; //start at selected kitchen, first node of route
+  var end = document.getElementById('end').value; //end at last point in selected route
+  waypoints = [];
+  //for each of the rest of the points in selected route
+  waypoints.push({
+      location: "joplin, mo", //this point
+      stopover: true
+    });
+  var request = {
+      origin:start,
+      destination:end,
+          waypoints: waypoints,
+      travelMode: google.maps.TravelMode.DRIVING
+  };
+  directionsService.route(request, function(response, status) {
+    if (status == google.maps.DirectionsStatus.OK) {
+      directionsDisplay.setDirections(response);
+    }
 
+  });
+}
+</script>
 <body class="home page page-id-25 page-template page-template-page-templatesjobify-php custom-background custom-font wp-job-manager-categories">
 
 	<div class="outer-wrapper">
@@ -18,7 +41,6 @@ include "header.php";
 							
 							<span>Food Chain</span>
 						</h1>
-						<h2 class="site-description">Job Searching Just Got Easy</h2>
 					</a>
 
 					<nav id="site-navigation" class="site-primary-navigation slide-left">
@@ -29,7 +51,8 @@ include "header.php";
         <button type="submit" id="searchsubmit"><i class="icon-search"></i></button>
     </div>
 </form>						<div class="menu-main-menu-container"><ul id="menu-main-menu" class="nav-menu-primary"><li id="menu-item-30" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children has-children menu-item-30"><a href="http://localhost.com/jobify/jobs/">Kitchens</a>
-<ul class="sub-menu">
+<ul class="sub-menu" onchange="calcRoute();">
+	<!--populate with kitchens from database-->
 	<li id="menu-item-2054" class="menu-item menu-item-type-taxonomy menu-item-object-job_listing_region menu-item-2054"><a href="http://localhost.com/jobify/job-region/palo-alto/">Palo Alto</a></li>
 	<li id="menu-item-2055" class="menu-item menu-item-type-taxonomy menu-item-object-job_listing_region menu-item-2055"><a href="http://localhost.com/jobify/job-region/san-francisco/">San Francisco</a></li>
 	<li id="menu-item-2056" class="menu-item menu-item-type-taxonomy menu-item-object-job_listing_region menu-item-2056"><a href="http://localhost.com/jobify/job-region/san-jose/">San Jose</a></li>
@@ -37,9 +60,9 @@ include "header.php";
 </ul>
 </li>
 
-<li id="menu-item-2541" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2541"><a href="http://localhost.com/jobify/testimonials/">Uploads</a></li>
 <li id="menu-item-1783" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children has-children menu-item-1783"><a href="#">Routes</a>
 <ul class="sub-menu">
+	<!--populate with route options per kitchen, with script to auto-update-->
 	<li id="menu-item-1791" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1791"><a href="http://localhost.com/jobify/blog/">Blog</a></li>
 	<li id="menu-item-1790" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1790"><a href="http://localhost.com/jobify/jobs/">Jobs</a></li>
 	<li id="menu-item-1789" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1789"><a href="http://localhost.com/jobify/post-a-job/">Post a Job</a></li>
@@ -51,6 +74,7 @@ include "header.php";
 	<li id="menu-item-2182" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2182"><a href="http://localhost.com/jobify/contact/">Contact</a></li>
 </ul>
 </li>
+<li id="menu-item-2541" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2541"><a href="http://localhost.com/jobify/testimonials/">Uploads</a></li>
 
 <li id="login-modal" class="login menu-item menu-item-type-post_type menu-item-object-page menu-item-1676"><a href="http://localhost.com/jobify/login/">Login</a></li>
 </ul></div>					</nav>
