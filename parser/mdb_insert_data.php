@@ -2,17 +2,20 @@
 
 include "parse.php";
 
-echo "hello word";
 try {
         // Connect to MongoDB
-        $conn = new Mongo('mongodb://mike:password@localhost/products');
+        $conn = new Mongo('mongodb://localhost');
 		if (!$conn){
-		 echo "failed";
+			echo "failed";
 		}
 
 
         // // connect to test database
          $db = $conn->products;
+		 
+		 // Drop everything, start fresh
+		$response = $db->drop();
+		print_r($response);
 
         // a new products collection object
         $collection =  $db->service;
@@ -21,17 +24,10 @@ try {
 		
 		$csv = csv_to_array("service-users.csv");
 		// print_r($test);
-		$csv  = json_encode($csv );
-		$csv  =json_decode($csv ,true);
+		//$csv = json_encode($csv );
+		//$csv = json_decode($csv ,true);
 		
-		
-		// $note =  $obj['note'];
-		// var_dump($note);
-		foreach ($csv  as $value) {
-			$collection->insert($value);
-			// echo "key is ".$key."\n<br>";
-			// echo "value is ".$value."\n<br>";
-		}
+		$collection->insert($csv);
 		echo "data inserted succeed!";
         // $product = array(
                         // 'name' => 'Televisions',
@@ -60,7 +56,5 @@ catch ( MongoException $e )
 {
         echo $e->getMessage();
 }
-
-echo "hello word2";
 
 ?>

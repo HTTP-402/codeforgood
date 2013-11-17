@@ -16,8 +16,9 @@ function csv_to_array($filename='', $delimiter=',')
     $data = array();
     if (($handle = fopen($filename, 'r')) !== FALSE)
     {
-        while (($row = fgetcsv($handle, 500, $delimiter)) !== FALSE)
+        while (($r = fgetcsv($handle, 500, $delimiter)) !== FALSE)
         {
+			$row = encode_items($r);
             if(!$header)
                 $header = $row;
             else {
@@ -49,7 +50,7 @@ function make_array($headers, $row, $extra)
 			$array[$switch] = $row[$key];
 			$array['Location'] = isset($extra[$row[$key]]) ? array(
 				'lat' => $extra[$row[$key]][2],
-				'lng' => $extra[$row[$key]][3]) : "FUCK";
+				'lng' => $extra[$row[$key]][3]) : NULL;
 			break;
 		case 'Kitchen':
 			$array[$switch] = $row[$key];
@@ -88,6 +89,19 @@ function sanitize_key($key)
 	return str_replace(array('\n','\r',' ', '.', ','), '', ucwords($key));
 }
 
+function encode_items($array)
+{
+    foreach($array as $key => $value)
+    {
+        if(is_array($value)){
+            $array[$key] = encode_items($value);
+        } else {
+            $array[$key] = mb_convert_encoding($value, 'UTF-8');
+        }
+    }
+    return $array;
+}
+
 function get_lat_lng($postcode)
 {
 	$request_url = "http://maps.googleapis.com/maps/api/geocode/json?address=".urlencode($postcode)."&sensor=true";
@@ -118,6 +132,6 @@ function load_csv($file, $delimiter=',')
 	return $data;
 }
 
-$out = csv_to_array("service-users.csv");
-print_r($out);
+//$out = csv_to_array("service-users.csv");
+//print_r($out);
 ?>
