@@ -10,7 +10,7 @@
 
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
 
-<?php include "header.php";
+<?php include "header.php";?>
 
 <style>
       html, body, #map-canvas {
