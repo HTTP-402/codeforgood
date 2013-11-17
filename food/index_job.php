@@ -67,7 +67,7 @@ function calcRoute() {
 </li>
 
 <li id="menu-item-1783" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children has-children menu-item-1783"><a href="#">Routes</a>
-<ul id="routes" class="sub-menu" onclick="calcRoute();>
+<ul id="routes" class="sub-menu" onclick="calcRoute();">
 	<!--populate with route options per kitchen, with script to auto-update-->
 	<li></li>
 </ul>
