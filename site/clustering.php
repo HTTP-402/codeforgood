@@ -24,9 +24,6 @@ try {
                 // loop over the results
                 foreach ($cursor as $obj)
                 {
-					//print_r($obj['Location']);
-					//echo $obj['Location']['lat'];
-					//var_dump($obj['Location']['lat']);
 					$locs[$i] = array();
 					$locs[$i][0] = $obj['Location']['lat'];
 					$locs[$i][1] = $obj['Location']['lng'];

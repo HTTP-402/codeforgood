@@ -37,6 +37,8 @@ var map;
 
 function initialize() {
   directionsDisplay = new google.maps.DirectionsRenderer();
+  //centre on selected kitchen
+  //var kitchen = new google.maps.LatLng(,);
   var chicago = new google.maps.LatLng(41.850033, -87.6500523);
   var mapOptions = {
     zoom:7,
@@ -48,11 +50,12 @@ function initialize() {
 }
 
 function calcRoute() {
-  var start = document.getElementById('start').value;
-  var end = document.getElementById('end').value;
+  var start = document.getElementById('start').value; //start at selected kitchen
+  var end = document.getElementById('end').value; //end at last point in selected route
   waypoints = [];
+  //for each of the rest of the points in selected route
   waypoints.push({
-      location: "joplin, mo",
+      location: "joplin, mo", //this point
       stopover: true
     });
   var request = {
@@ -71,7 +74,7 @@ function calcRoute() {
 
 google.maps.event.addDomListener(window, 'load', initialize);
 
-    </script>
+</script>
 
 </head>
 <body>
@@ -86,6 +89,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Kitchens<b class="caret"></b></a>
         <ul class="dropdown-menu">
+		  <!--pull entries from database-->
           <li><a href="#">Kitchen1</a></li>
           <li><a href="#">Kitchen2</a></li>
         </ul>
@@ -96,6 +100,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Routes<b class="caret"></b></a>
         <ul class="dropdown-menu">
+		  <!--get routes for selected kitchen-->
           <li><a href="#">Route1</a></li>
           <li><a href="#">Route2</a></li>
         </ul>
