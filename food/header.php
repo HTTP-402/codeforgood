@@ -171,7 +171,7 @@ function calcRoute() {
   for(i; i < Objects.keys(waypoints).length; i++)
   {
 	  waypoints.push({
-      location: waypoints[i].PrimaryPostalCode
+      location: waypoints[i].PrimaryPostalCode,
       stopover: true
     });
 	}
