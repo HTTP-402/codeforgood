@@ -75,7 +75,6 @@ function distance($lat1, $lon1, $lat2, $lon2) {
   $dist = acos($dist);
   $dist = rad2deg($dist);
   $miles = $dist * 60 * 1.1515;
-  $unit = strtoupper($unit);
 
   return $miles;
 }
@@ -126,8 +125,9 @@ for($k=0;$k<count($kitchens);$k++)
 {
 	$collections['kitchenID']=$k;
 	foreach($collection[$k] as $c)
-	{
-		$db_collection->insert($c[$k]);
+	{	
+		$put = array($k,$c[2]);
+		$db_collection->insert($put);
 	}
 	echo "<br>";
 }
