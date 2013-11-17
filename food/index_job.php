@@ -58,12 +58,12 @@ function calcRoute() {
         <button type="submit" id="searchsubmit"><i class="icon-search"></i></button>
     </div>
 </form>						<div class="menu-main-menu-container"><ul id="menu-main-menu" class="nav-menu-primary"><li id="menu-item-30" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children has-children menu-item-30"><a href="http://localhost.com/jobify/jobs/">Kitchens</a>
-<ul class="sub-menu" onclick="<script> alert('hello');</script>">
+<ul class="sub-menu" onclick="alert('hello')">
 	<!--populate with kitchens from database--> 
-    <li id="menu-item-2054" class="menu-item menu-item-type-taxonomy menu-item-object-job_listing_region menu-item-2054"><a href="<script>alert('thisone');</script>">Palo Alto</a></li>
-	<li id="menu-item-2055" class="menu-item menu-item-type-taxonomy menu-item-object-job_listing_region menu-item-2055"><a href="http://localhost.com/jobify/job-region/san-francisco/">San Francisco</a></li>
-	<li id="menu-item-2056" class="menu-item menu-item-type-taxonomy menu-item-object-job_listing_region menu-item-2056"><a href="http://localhost.com/jobify/job-region/san-jose/">San Jose</a></li>
-	<li id="menu-item-2053" class="menu-item menu-item-type-taxonomy menu-item-object-job_listing_region menu-item-2053"><a href="http://localhost.com/jobify/job-region/mountain-view/">Mountain View</a></li>
+    <li id="menu-item-2054" ><a href="http://localhost.com/jobify/job-region/palo-alto/">Palo Alto</a></li>
+	<li id="menu-item-2055" ><a href="http://localhost.com/jobify/job-region/san-francisco/">San Francisco</a></li>
+	<li id="menu-item-2056" ><a href="http://localhost.com/jobify/job-region/san-jose/">San Jose</a></li>
+	<li id="menu-item-2053" ><a href="http://localhost.com/jobify/job-region/mountain-view/">Mountain View</a></li>
 
 </ul>
 </li>
