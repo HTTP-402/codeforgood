@@ -40,6 +40,8 @@ function routeLength( $route ){
 function fitnessSolution( $solution ){
 	$fitness = 0;
 	foreach( $solution as $routeIndex => $route ) {
+		if(count($route)>MAX_ROUTE_STOPS) 
+			$fitess = 99999999;
 		$fitness += routeLength($route);
 	}
 	return ( $fitness );
@@ -239,7 +241,34 @@ if (($handle = fopen("../../kitchens.csv", "r")) !== FALSE) {
 }
 
 foreach($kitchens as $kitchenLatLong_in){
-	geneticAlgorithm($kitchenLatLong_in, $services );
+	$BestSolution = geneticAlgorithm($kitchenLatLong_in, $services );
+	for($BestSolution as $index=>$route){
+		print $index." ".count($route)."\n";
+	}
+	print "\n"
+	/*try {
+		// Connect to MongoDB
+		$conn = new Mongo('mongodb://localhost');
+		if (!$conn){
+			echo "failed";
+		}
+		// connect to products database
+		$db = $conn->products;
+
+		// a new routes collection object
+		$routes =  $db->routes;
+
+		$routes['kitchenID'] = $kitchenID;
+		$routes->insert($routes);
+
+		// close connection to MongoDB
+		$conn->close();
+	} catch ( MongoConnectionException $e ) {
+		// if there was an error, we catch and display the problem here
+		echo $e->getMessage();
+	} catch ( MongoException $e ) {
+		echo $e->getMessage();
+	}*/
 }
 
 ?>
