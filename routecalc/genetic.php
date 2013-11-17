@@ -45,8 +45,8 @@ function fitnessSolution( $solution ){
 function countPresent( $solution, $var ) {
 	$count = 0;
 	for( $i = 0; $i < count( $solution ); $i++ )
-		for( $j = 0; $j < count( $solution[i] ); $j++ )
-			if( $solution[i][j] == $var )
+		for( $j = 0; $j < count( $solution[$i] ); $j++ )
+			if( $solution[$i][$j] == $var )
 				$count++;
 
 	return $count;
@@ -131,7 +131,7 @@ function geneticAlgorithm( $kitchenLatLong_in, $nodesArray_in ){
 
 	// Generate the population
 	$population = generatePopulation( $nodesArray, $numDriversMax );
-	
+
 	print "pop gen";
 
 	for( $gen=0; $gen < GENERATION_COUNT; $gen++ ){
