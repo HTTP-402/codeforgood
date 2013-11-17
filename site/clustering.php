@@ -19,11 +19,13 @@ try {
         if( $num_docs > 0 )
         {
 				$i = 0;
+				$locs = array();
+				$ids = array();
                 // loop over the results
                 foreach ($cursor as $obj)
                 {
-                    //print_r($obj['location']); 
-					echo $obj['Location'];
+					$locs[$i] = $obj['Location'];
+					$ids[$i]= $obj['_id'];
 					$i++;
                 }
   
@@ -45,18 +47,14 @@ catch ( MongoException $e )
 {
         echo $e->getMessage();
 } 
-/*
+
 // Fetch data about users
 $users = array();
-$row = 0;
-if (($handle = fopen("users.csv", "r")) !== FALSE) {
-	while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
-	$num = count($data);
-	$users[$row]=array($data[2],$data[3],$data[0]);
-	$row++;
+for($row=0; $row<count($locs); $row++)
+{
+	$users[$row]=array($locs[$row][0], $locs[$row][1], $ids[$rows]);
 }
-fclose($handle);
-}
+
 $kitchens = array();
 $row = 0;
 if (($handle = fopen("kitchens.csv", "r")) !== FALSE) {
@@ -113,7 +111,7 @@ while($set < count($users))
 		$distances[1][$a[0]]=9999;
 		$distances[2][$a[0]]=9999;
 		$set++;
-		$collection[$k][]=$users[$a[0]];	
+		$collection[$k][]=$users[$a[0]][2];	
 	}
 }
 
@@ -121,10 +119,9 @@ for($k=0;$k<count($kitchens);$k++)
 {
 	foreach($collection[$k] as $c)
 	{
-		echo $c[0].", ".$c[1]."<br>";
+		echo $c."<br>";
 	}
 	echo "<br>";
 }
 
-*/
 ?>
