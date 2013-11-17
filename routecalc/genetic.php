@@ -3,7 +3,7 @@
 define( 'GENERATION_COUNT', 10 );
 define( 'POPULATION_COUNT', 10 );
 define( 'MAX_MEALS_PER_ROUTE', 12 );
-define( 'MAX_ROUTE_STOPS', 8 );
+define( 'MAX_ROUTE_STOPS', 10000 );
 
 $kitchenLatLong = NULL;
 
