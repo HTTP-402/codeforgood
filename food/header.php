@@ -179,7 +179,7 @@ function calcRoute() {
   for(i; i < Objects.keys(waypoints).length; i++)
   {
 	  waypoints.push({
-      location: new google.maps.LatLng(waypoints[i]['Location']['lat'],waypoints[i]['Location']['lng']);
+      location: waypoints[i].PrimaryPostalCode
       stopover: true
     });
 	}
