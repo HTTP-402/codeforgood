@@ -217,7 +217,7 @@ $db = $conn->products;
 // a new collections object
 $clusters = $db->clusters;
 $cursor = $clusters->find();
-var_dump($cursor)
+var_dump($cursor);
 // Find the nodes
 $services = array();
 $index = 0;
