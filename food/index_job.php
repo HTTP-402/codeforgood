@@ -41,45 +41,7 @@ function calcRoute() {
 	<div id="page" class="hfeed site slide-right">
 	
 			<header id="masthead" class="site-header" role="banner">
-				<div class="container">
-					<a href="http://localhost.com/jobify/" title="Jobify" rel="home" class="site-branding">
-												<h1 class="site-title">
-											
-							
-							<span>Food Chain</span>
-						</h1>
-					</a>
-
-					<nav id="site-navigation" class="site-primary-navigation slide-left">
-						<a href="#" class="primary-menu-toggle"><i class="icon-cancel-circled"></i> <span>Close</span></a>
-						<form role="search" method="get" id="searchform" action="http://localhost.com/jobify/">
-    <div><label class="screen-reader-text" for="s">Search for:</label>
-        <input type="text" value="" name="s" id="s">
-        <button type="submit" id="searchsubmit"><i class="icon-search"></i></button>
-    </div>
-</form>						<div class="menu-main-menu-container"><ul id="menu-main-menu" class="nav-menu-primary"><li id="menu-item-30" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children has-children menu-item-30"><a href="http://localhost.com/jobify/jobs/">Kitchens</a>
-<ul class="sub-menu" onclick="updateroutes();">
-	<!--populate with kitchens from database--> 
-    <li id="0"><a>Albrighton Community Centre</a></li>
-	<li id="1"><a>Acorn House</a></li>
-	<li id="2"><a>Highgate Centre</a></li>
-</ul>
-</li>
-
-<li id="menu-item-1783" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children has-children menu-item-1783"><a href="#">Routes</a>
-<ul id="routes" class="sub-menu" onclick="calcRoute();">
-	<!--populate with route options per kitchen, with script to auto-update-->
-	<li></li>
-</ul>
-</li>
-<li id="menu-item-2541" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2541"><a href="http://localhost.com/jobify/testimonials/">Uploads</a></li>
-
-<li id="login-modal" class="login menu-item menu-item-type-post_type menu-item-object-page menu-item-1676"><a href="http://localhost.com/jobify/login/">Login</a></li>
-</ul></div>					</nav>
-
-							<a href="#" class="primary-menu-toggle in-header"><i class="icon-menu"></i></a>
-									</div>
-			</header><!-- #masthead -->
+				</header><!-- #masthead -->
 
 
 		
