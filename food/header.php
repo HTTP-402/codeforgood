@@ -151,7 +151,7 @@ function initialize() {
   map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
   directionsDisplay.setMap(map);
 }
-jquery(document).ready(function(){ 
+(document).ready(function(){ 
 function calcRoute() {
   waypoints = [ { "_id" : ObjectId("5288886719142d15233c9869"), "Nickname" : "Barr", "Status(onlyDeliverToOn-service)" : "On-Service", "PrimaryPostalCode" : "E10 7NL", "Location" : { "lat" : "51.570312", "lng" : "-0.032224" }, "NoMeals": "6", "MealType" : [  "Regular / Traditional",        "Regular / Traditional",        "Regular / Traditional",        "Regular / Traditional",                                                    "Regular / Traditional",        "Regular / Traditional" ], "BookingID" : [      "500A000000DrZW7",      "500A000000DrZW7",      "500A000                                            000DrZW7",      "500A000000DrZW7",      "500A000000DrZW7",      "500A000000DrZW7" ], "Comments" : [     "No couscous or rice please. ONLY sandwi                                            ch for light meals.",   "nil",  "nil",  "Child Born 2008. Dislikes vegetables",         "Child Born 2005. Likes sausages.",     "Child Born 2001                                            " ], "Kitchen" : "", "RouteAndCode" : "", "Birthdate" : "14/09/1975", "Cake?" : "No", "NotesFromKitchen" : "" },
 { "_id" : ObjectId("5288886719142d15233c986a"), "Nickname" : "Eric", "Status(onlyDeliverToOn-service)" : "On-Service", "PrimaryPostalCode" : "E14 8AH", "Location" : { "lat" : "51.509936", "lng" : "-0.029567" }, "NoMeals": "1", "MealType" : [  "Vegetarian" ], "BookingID" : [  "500A00000047EiL" ], "Comments" : [  "nil" ], "Kitchen" : "", "RouteAndCode" : "", "Bir                                            thdate" : "28/06/1971", "Cake?" : "No", "NotesFromKitchen" : "" },
@@ -163,15 +163,15 @@ function calcRoute() {
 { "_id" : ObjectId("5288886719142d15233c9870"), "Nickname" : "Steph", "Status(onlyDeliverToOn-service)" : "On-Service", "PrimaryPostalCode" : "E3 3GH", "Location" : { "lat" : "51.530775", "lng" : "-0.029351" }, "NoMeals": "1", "MealType" : [  "African/Afro-Caribbean" ], "BookingID" : [  "500A000000F3zzV" ], "Comments" : [  "No pork; High energy and high density                                             food" ], "Kitchen" : "", "RouteAndCode" : "", "Birthdate" : "08/11/1991", "Cake?" : "No", "NotesFromKitchen" : "" } ];
   
 
-  var start = waypoints["E10 7NL"]; //start at selected kitchen, first node of route
-  var end = waypoints["E3 3GH"]; //end at last point in selected route
-  var these = ["E14 8AH","E15 3EP"];
+  var start = waypoints[0].PrimaryPostalCode; //start at selected kitchen, first node of route
+  var end = waypoints[waypoints.length-1].PrimaryPostalCode; //end at last point in selected route
+  
   //for each of the rest of the points in selected route
   var i = 1;
-  for(i; i <3; i++)
+  for(i; i < Objects.keys(waypoints).length-1; i++)
   {
 	  waypoints.push({
-      location: waypoints[i],//.PrimaryPostalCode,
+      location: waypoints[i].PrimaryPostalCode,
       stopover: true
     });
 	}
@@ -179,7 +179,7 @@ function calcRoute() {
   var request = {
       origin:start,
       destination:end,
-          waypoints: waypoints,
+      waypoints: waypoints,
       travelMode: google.maps.TravelMode.DRIVING
   };
   directionsService.route(request, function(response, status) {
