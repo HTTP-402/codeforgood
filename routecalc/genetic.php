@@ -42,7 +42,7 @@ function fitnessSolution( $solution ){
 	$fitness = 0;
 	foreach( $solution as $routeIndex => $route ) {
 		if(count($route)>MAX_ROUTE_STOPS) 
-			$fitess = 99999999;
+			$fitness = 99999999;
 		$fitness += routeLength($route);
 	}
 	return ( $fitness );
