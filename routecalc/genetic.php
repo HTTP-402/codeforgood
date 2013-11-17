@@ -22,9 +22,9 @@ function routeLength( $route ){
 	$distance = 0;
 	foreach( $route as $index => $node ){
 		if( $index == 0 ){
-			$distance += distance_between_points( $kitchenLatLong["latitude"], $kitchenLatLong["longitude"], $node["latitude"], $node["longitude"] );
+			$distance += distance_between_points( $kitchenLatLong["latitude"], $kitchenLatLong["longitude"], $node["Location"]["lat"], $node["Location"]["lng"] );
 		} else if( $index >= 1 ) {
-			$distance += distance_between_points( $route[$index-1]["latitude"], $route[$index-1]["longitude"], $node["latitude"], $node["longitude"] );
+			$distance += distance_between_points( $route[$index-1]["Location"]["lat"], $route[$index-1]["Location"]["lng"], $node["Location"]["lat"], $node["Location"]["lng"] );
 		}
 	}
 	return $distance;
@@ -200,19 +200,10 @@ $db = $conn->products;
 $clusters = $db->clusters;
 $cursor = $clusters->find();
 // Find the nodes
+$services = array();
 foreach($cursor as $cluster){
-	print_r($db->service->findOne(array("_id"=>$cluster[1])));
-	exit();
+	$services[] = $db->service->findOne(array("_id"=>$cluster[1])));
 }
-/*
-
-
-
-
-
-
-$collection = $services.find();
-$collection =  $db->services$db->collections;
 
 
 
@@ -223,14 +214,14 @@ $row = 0;
 if (($handle = fopen("kitchens.csv", "r")) !== FALSE) {
 	while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
 		$num = count($data);
-		$kitchenLatLong_in[$row]=array($data[2],$data[3],$data[6]);
+		$kitchenLatLong_in[$row]=array("latitude"=>$data[2],"longitude"=>$data[3]);
 		$row++;
 	}
 	fclose($handle);
 }
 
 foreach($kitchens as $kitchen){
-	# geneticAlgorithm($kitchenLatLong_in, $nodesArray_in);
-}*/
+	geneticAlgorithm($kitchenLatLong_in, $services );
+}
 
 ?>
