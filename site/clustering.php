@@ -25,7 +25,7 @@ try {
                 // if no products are found, we show this message
                 echo "No products found \n";
         }
- 
+		echo "all good!";
         // close the connection to MongoDB
         $conn->close();
 }
