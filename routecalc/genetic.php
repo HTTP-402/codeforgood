@@ -68,7 +68,7 @@ function repairSolution( $solution, $nodesArray ) {
 	// Nested for loop heaven
 	for( $i = 0; $i < count( $solution ); $i++ ) {
 		for( $j = 0; $j < count( $solution[$i] ); $j++ ) {
-			if( countPresent( $solution[$i][$j] ) > 1 ) {
+			if( countPresent( $solution, $solution[$i][$j] ) > 1 ) {
 				$solution[$i][$j] = array_pop( $missingVals );
 			}
 		}
