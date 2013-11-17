@@ -87,6 +87,7 @@ function generateSolution( $nodesArray, $numDriversMax ){
 	array_rand( $nodesArray );
 
 	for( $r = 0; $r < $numDriversMax; $r++ ){
+		$solution[$r] = [];
 		$numMeals = 0;	
 		while( !empty( $nodesArray ) ) {
 				
