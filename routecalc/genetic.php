@@ -245,7 +245,7 @@ foreach($kitchens as $kitchenLatLong_in){
 	for($BestSolution as $index=>$route){
 		print $index." ".count($route)."\n";
 	}
-	print "\n"
+	print "\n";
 	/*try {
 		// Connect to MongoDB
 		$conn = new Mongo('mongodb://localhost');
