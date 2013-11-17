@@ -135,22 +135,25 @@ var map;
 
 function initialize() {
   directionsDisplay = new google.maps.DirectionsRenderer();
-  var chicago = new google.maps.LatLng(41.850033, -87.6500523);
+  //centre on selected kitchen
+  //var kitchen = new google.maps.LatLng(,);
+  var london = new google.maps.LatLng(51.5072, 0.1275);
   var mapOptions = {
     zoom:7,
     mapTypeId: google.maps.MapTypeId.ROADMAP,
-    center: chicago
+    center: london
   }
   map = new google.maps.Map(document.getElementById('jobify-map-canvas'), mapOptions);
   directionsDisplay.setMap(map);
 }
 
 function calcRoute() {
-  var start = document.getElementById('start').value;
-  var end = document.getElementById('end').value;
+  var start = document.getElementById('start').value; //start at selected kitchen
+  var end = document.getElementById('end').value; //end at last point in selected route
   waypoints = [];
+  //for each of the rest of the points in selected route
   waypoints.push({
-      location: "joplin, mo",
+      location: "joplin, mo", //this point
       stopover: true
     });
   var request = {
