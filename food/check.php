@@ -36,7 +36,7 @@ function calcRoute() {
   waypoints = [];
   //for each of the rest of the points in selected route
   waypoints.push({
-      location: "joplin, mo", //this point
+      location: new google.maps.LatLng(51.5072, 0.1275);
       stopover: true
     });
   var request = {

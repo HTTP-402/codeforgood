@@ -77,15 +77,14 @@ function calcRoute() {
 <li id="login-modal" class="login menu-item menu-item-type-post_type menu-item-object-page menu-item-1676"><a href="http://localhost.com/jobify/login/">Login</a></li>
 </ul></div>					</nav>
 
-										<a href="#" class="primary-menu-toggle in-header"><i class="icon-menu"></i></a>
+							<a href="#" class="primary-menu-toggle in-header"><i class="icon-menu"></i></a>
 									</div>
 			</header><!-- #masthead -->
 
 
 		
 			<div id="map-canvas-wrap">
-								<div class="map-filter animated fadeInUp">
-					
+				<div class="map-filter animated fadeInUp">
 				</div>
 				
 				<div id="jobify-map-canvas"></div>
