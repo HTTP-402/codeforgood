@@ -217,14 +217,13 @@ $db = $conn->products;
 // a new collections object
 $clusters = $db->clusters;
 $cursor = $clusters->find();
-var_dump($cursor);
 // Find the nodes
 $services = array();
 $index = 0;
 foreach($cursor as $cluster){
-	$services[$index] = $db->service->find(array("_id"=>$cluster[1]));
-	$index++;
+	$services_unsplit = $db->service->find();
 }
+var_dump($services_unsplit);
 $conn->close();
 
 
