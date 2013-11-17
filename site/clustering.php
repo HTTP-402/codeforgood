@@ -25,8 +25,8 @@ try {
                 foreach ($cursor as $obj)
                 {
 					print_r($obj['Location']);
-					$locs[$i][0] = $obj['Location']['lat'];
-					$locs[$i][1] = $obj['Location']['lng'];
+					//$locs[$i][0] = $obj['Location']['lat'];
+					//$locs[$i][1] = $obj['Location']['lng'];
 					$ids[$i]= $obj['_id'];
 					$i++;
                 }
@@ -49,7 +49,7 @@ catch ( MongoException $e )
 {
         echo $e->getMessage();
 } 
-
+/*
 // Fetch data about users
 $users = array();
 for($row=0; $row<count($locs); $row++)
@@ -125,5 +125,5 @@ for($k=0;$k<count($kitchens);$k++)
 	}
 	echo "<br>";
 }
-
+*/
 ?>
