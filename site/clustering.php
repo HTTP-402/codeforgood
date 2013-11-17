@@ -52,7 +52,7 @@ catch ( MongoException $e )
 $users = array();
 for($row=0; $row<count($locs); $row++)
 {
-	$users[$row]=array($locs[$row][0], $locs[$row][1], $ids[$row]);
+	$users[$row]=array($locs[$row]['lat'], $locs[$row]['lng'], $ids[$row]);
 }
 
 $kitchens = array();
