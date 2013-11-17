@@ -10,25 +10,9 @@
 
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
 
-<?php //include "header.php";?>
+<?php include "header.php";?>
 
-<style>
-      html, body, #map-canvas {
-        height: 100%;
-        margin: 0px;
-        padding: 0px
-      }
-      #panel {
-        position: absolute;
-        top: 5px;
-        left: 50%;
-        margin-left: -180px;
-        z-index: 5;
-        background-color: #fff;
-        padding: 5px;
-        border: 1px solid #999;
-      }
-    </style>
+
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
     <script>
 var directionsDisplay;
@@ -78,8 +62,8 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
 </head>
 <body>
- <nav class="navbar navbar-default" role="navigation">
-  <!-- Brand and toggle get grouped for better mobile display -->
+ <!-- <nav class="navbar navbar-default" role="navigation">
+  <!-- Brand and toggle get grouped for better mobile display
   <div class="navbar-header">
     <a class="navbar-brand" href="#">Map</a>
   </div>
@@ -89,7 +73,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Kitchens<b class="caret"></b></a>
         <ul class="dropdown-menu">
-		  <!--pull entries from database-->
+		  <!--pull entries from database
           <li><a href="#">Kitchen1</a></li>
           <li><a href="#">Kitchen2</a></li>
         </ul>
@@ -100,13 +84,13 @@ google.maps.event.addDomListener(window, 'load', initialize);
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Routes<b class="caret"></b></a>
         <ul class="dropdown-menu">
-		  <!--get routes for selected kitchen-->
+		  <!--get routes for selected kitchen
           <li><a href="#">Route1</a></li>
           <li><a href="#">Route2</a></li>
         </ul>
       </li>
 	  </ul>
-</nav>
+</nav>-->
 
  <button type="button" class="btn btn-danger drop"><span class="glyphicon glyphicon-thumbs-up"></span>  Give me routes! </button>
 
