@@ -3,14 +3,20 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <title>Food Chain Routes</title>
   <meta name="description" content="">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-<link href="//netdna.bootstrapcdn.com/bootswatch/3.0.1/flatly/bootstrap.min.css" rel="stylesheet">
+  <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <link href="//netdna.bootstrapcdn.com/bootswatch/3.0.1/flatly/bootstrap.min.css" rel="stylesheet">
 
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
 
+<<<<<<< Updated upstream
 <style>
+=======
+
+
+  <style>
+>>>>>>> Stashed changes
       html, body, #map-canvas {
         height: 100%;
         margin: 0px;
@@ -92,9 +98,9 @@ google.maps.event.addDomListener(window, 'load', initialize);
           <li><a href="#">Kitchen2</a></li>
         </ul>
       </li>
-	  </ul>
+    </ul>
 	  
-	  <ul class="nav navbar-nav">
+    <ul class="nav navbar-nav">
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Routes<b class="caret"></b></a>
         <ul class="dropdown-menu">
@@ -103,10 +109,8 @@ google.maps.event.addDomListener(window, 'load', initialize);
           <li><a href="#">Route2</a></li>
         </ul>
       </li>
-	  </ul>
-</nav>
-
- <button type="button" class="btn btn-danger drop"><span class="glyphicon glyphicon-thumbs-up"></span>  Give me routes! </button>
+    </ul>
+ </nav>
 
  <div id="panel">
     <b>Start: </b>
