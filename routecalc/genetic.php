@@ -201,7 +201,7 @@ $clusters = $db->clusters;
 $cursor = $clusters->find();
 // Find the nodes
 foreach($cursor as $cluster){
-	print_r($db->service->find(array("_id"=>$cluster[1])));
+	print_r($db->service->findOne(array("_id"=>$cluster[1])));
 	exit();
 }
 /*
