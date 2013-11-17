@@ -18,10 +18,17 @@ try {
  
         if( $num_docs > 0 )
         {
+				$i = 0;
+				$locs = array();
+				$ids = array();
                 // loop over the results
                 foreach ($cursor as $obj)
                 {
-                    print_r($obj);    
+					$locs[$i] = array();
+					$locs[$i][0] = $obj['Location']['lat'];
+					$locs[$i][1] = $obj['Location']['lng'];
+					$ids[$i]= $obj['_id'];
+					$i++;
                 }
   
         }
@@ -42,18 +49,14 @@ catch ( MongoException $e )
 {
         echo $e->getMessage();
 } 
-/*
+
 // Fetch data about users
 $users = array();
-$row = 0;
-if (($handle = fopen("users.csv", "r")) !== FALSE) {
-	while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
-	$num = count($data);
-	$users[$row]=array($data[2],$data[3],$data[0]);
-	$row++;
+for($row=0; $row<count($locs); $row++)
+{
+	$users[$row]=array($locs[$row][0], $locs[$row][1], $ids[$row]);
 }
-fclose($handle);
-}
+
 $kitchens = array();
 $row = 0;
 if (($handle = fopen("kitchens.csv", "r")) !== FALSE) {
@@ -65,14 +68,13 @@ if (($handle = fopen("kitchens.csv", "r")) !== FALSE) {
 fclose($handle);
 }
 
-function distance($lat1, $lon1, $lat2, $lon2, $unit) {
+function distance($lat1, $lon1, $lat2, $lon2) {
 
   $theta = $lon1 - $lon2;
   $dist = sin(deg2rad($lat1)) * sin(deg2rad($lat2)) +  cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * cos(deg2rad($theta));
   $dist = acos($dist);
   $dist = rad2deg($dist);
   $miles = $dist * 60 * 1.1515;
-  $unit = strtoupper($unit);
 
   return $miles;
 }
@@ -113,15 +115,21 @@ while($set < count($users))
 		$collection[$k][]=$users[$a[0]];	
 	}
 }
+$conn = new Mongo('localhost');
+
+$db = $conn->products;
+$db_collection = $db->clusters;
+
 
 for($k=0;$k<count($kitchens);$k++)
 {
+	$collections['kitchenID']=$k;
 	foreach($collection[$k] as $c)
-	{
-		echo $c[0].", ".$c[1]."<br>";
+	{	
+		$put = array($k,$c[2]);
+		$db_collection->insert($put);
 	}
 	echo "<br>";
 }
-
-*/
+$conn->close();
 ?>

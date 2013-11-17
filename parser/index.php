@@ -6,6 +6,10 @@ function csv_to_array($filename='', $delimiter=',')
         return FALSE;
 	}
 
+	$extra = load_csv("position-users.csv");
+	//print_r($extra);
+	//exit();
+	
     $header = NULL;
 	$prev = NULL;
 	$entry = array();
@@ -17,7 +21,7 @@ function csv_to_array($filename='', $delimiter=',')
             if(!$header)
                 $header = $row;
             else {
-				$entry = make_array($header, $row);
+				$entry = make_array($header, $row, $extra);
 				if(!empty($entry['Nickname'])){
 					if(!empty($prev))
 						$data[] = $prev;
@@ -34,7 +38,7 @@ function csv_to_array($filename='', $delimiter=',')
     return $data;
 }
 
-function make_array($headers, $row)
+function make_array($headers, $row, $extra)
 {
 	$array = array();
 	foreach($headers as $key => $value)
@@ -43,7 +47,9 @@ function make_array($headers, $row)
 		switch($value){
 		case 'Primary Postal Code':
 			$array[$switch] = $row[$key];
-			$array['Location'] = get_lat_lng($row[$key]);
+			$array['Location'] = isset($extra[$row[$key]]) ? array(
+				'lat' => $extra[$row[$key]][2],
+				'lng' => $extra[$row[$key]][3]) : "FUCK";
 			break;
 		case 'Kitchen':
 			$array[$switch] = $row[$key];
@@ -94,6 +100,22 @@ function get_lat_lng($postcode)
 		'lat' => $back['results'][0]['geometry']['location']['lat'],
 		'lng' => $back['results'][0]['geometry']['location']['lng']
 	);
+}
+
+function load_csv($file, $delimiter=',')
+{
+	if(!file_exists($file) || !is_readable($file)){
+		echo "File not read";
+        return NULL;
+	}
+	$data = array();
+	if (($handle = fopen($file, 'r')) !== FALSE){
+		while (($row = fgetcsv($handle, 500, $delimiter)) !== FALSE)
+		{
+			$data[$row[0]] = $row;
+		}
+	}
+	return $data;
 }
 
 $out = csv_to_array("service-users.csv");
