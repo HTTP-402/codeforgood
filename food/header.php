@@ -148,7 +148,7 @@ function initialize() {
 }
 
 function calcRoute() {
-  var start = document.getElementById('start').value; //start at selected kitchen
+  var start = document.getElementById('start').value; //start at selected kitchen, first node of route
   var end = document.getElementById('end').value; //end at last point in selected route
   waypoints = [];
   //for each of the rest of the points in selected route
