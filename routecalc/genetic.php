@@ -124,10 +124,15 @@ function geneticAlgorithm( $kitchenLatLong_in, $nodesArray_in ){
 	$nodesArray = $nodesArray_in;
 	$numDriversMax = ceil( getNumMeals( $nodesArray ) / MAX_MEALS_PER_ROUTE );
 
+	print "Variables init";
+
 	// Generate the population
 	$population = generatePopulation( $nodesArray, $numDriversMax );
 
+	print "pop gen";
+
 	for( $gen=0; $gen < GENERATION_COUNT; $gen++ ){
+		print "gen".$gen;
 		$fitnesses = [];
 		for( $solution = 0; $solution < count( $population ); $solution++ ) {
 			$fitnesses[$solution] = fitnessSolution( $population[$solution] );
