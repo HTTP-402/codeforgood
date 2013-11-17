@@ -66,7 +66,7 @@ if (($handle = fopen("kitchens.csv", "r")) !== FALSE) {
 fclose($handle);
 }
 
-function distance($lat1, $lon1, $lat2, $lon2, $unit) {
+function distance($lat1, $lon1, $lat2, $lon2) {
 
   $theta = $lon1 - $lon2;
   $dist = sin(deg2rad($lat1)) * sin(deg2rad($lat2)) +  cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * cos(deg2rad($theta));
@@ -111,7 +111,7 @@ while($set < count($users))
 		$distances[1][$a[0]]=9999;
 		$distances[2][$a[0]]=9999;
 		$set++;
-		$collection[$k][]=$users[$a[0]][2];	
+		$collection[$k][]=$users[$a[0]];	
 	}
 }
 
@@ -119,7 +119,7 @@ for($k=0;$k<count($kitchens);$k++)
 {
 	foreach($collection[$k] as $c)
 	{
-		echo $c."<br>";
+		echo $c[2]."<br>";
 	}
 	echo "<br>";
 }
