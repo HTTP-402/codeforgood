@@ -204,7 +204,7 @@ foreach($cursor as $collection){
 	print_r($collection);
 	exit();
 }
-'''
+/*
 
 
 
@@ -231,6 +231,6 @@ if (($handle = fopen("kitchens.csv", "r")) !== FALSE) {
 
 foreach($kitchens as $kitchen){
 	# geneticAlgorithm($kitchenLatLong_in, $nodesArray_in);
-}'''
+}*/
 
 ?>
