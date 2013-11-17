@@ -131,18 +131,21 @@ function geneticAlgorithm( $kitchenLatLong_in, $nodesArray_in ){
 	$nodesArray = $nodesArray_in;
 	$numDriversMax = ceil( getNumMeals( $nodesArray ) / MAX_MEALS_PER_ROUTE );
 
-	print "Variables init";
-
 	// Generate the population
 	$population = generatePopulation( $nodesArray, $numDriversMax );
-
-	print "pop gen";
-
+	$bestSolution;
+	$bestScore=0;
 	for( $gen=0; $gen < GENERATION_COUNT; $gen++ ){
 		print "gen".$gen;
+
 		$fitnesses = [];
 		for( $solution = 0; $solution < count( $population ); $solution++ ) {
 			$fitnesses[$solution] = fitnessSolution( $population[$solution] );
+			if($bestScore>$fitnesses[$solution]){
+				$bestSolution = $population[$solution];
+				$bestScore = $fitnesses[$solution];
+			}
+
 		}
 
 		// BUBBLES SORTEZ
@@ -194,8 +197,9 @@ function geneticAlgorithm( $kitchenLatLong_in, $nodesArray_in ){
 		$population = $newPopulation;
 	}
 
-	print count($population);
-	return $population;
+	print_r($bestSolution);
+	print $bestScore;
+	return $bestSolution;
 }
 
 
