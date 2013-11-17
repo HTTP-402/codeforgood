@@ -242,7 +242,7 @@ if (($handle = fopen("../../kitchens.csv", "r")) !== FALSE) {
 
 foreach($kitchens as $kitchenLatLong_in){
 	$BestSolution = geneticAlgorithm($kitchenLatLong_in, $services );
-	for($BestSolution as $index=>$route){
+	foreach($BestSolution as $index=>$route){
 		print $index." ".count($route)."\n";
 	}
 	print "\n";
