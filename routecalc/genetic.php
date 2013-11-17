@@ -42,7 +42,7 @@ function fitnessSolution( $solution ){
 	foreach( $solution as $routeIndex => $route ) {
 		$fitness += routeLength($route);
 	}
-	return ( 1 / $fitness );
+	return ( $fitness );
 }
 
 function countPresent( $solution, $var ) {
@@ -134,7 +134,7 @@ function geneticAlgorithm( $kitchenLatLong_in, $nodesArray_in ){
 	// Generate the population
 	$population = generatePopulation( $nodesArray, $numDriversMax );
 	$bestSolution;
-	$bestScore=0;
+	$bestScore=9999999;
 	for( $gen=0; $gen < GENERATION_COUNT; $gen++ ){
 		print "gen".$gen;
 
@@ -142,7 +142,7 @@ function geneticAlgorithm( $kitchenLatLong_in, $nodesArray_in ){
 		for( $solution = 0; $solution < count( $population ); $solution++ ) {
 			$fitnesses[$solution] = fitnessSolution( $population[$solution] );
 			print $fitnesses[$solution];
-			if($bestScore>$fitnesses[$solution]){
+			if($bestScore<$fitnesses[$solution]){
 				$bestSolution = $population[$solution];
 				$bestScore = $fitnesses[$solution];
 			}
