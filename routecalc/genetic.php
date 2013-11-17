@@ -95,7 +95,7 @@ function generateSolution( $nodesArray, $numDriversMax ){
 			$numMeals += $node["NoMeals"];
 
 			// Check it would not put us over the limit
-			if( $numMeals < MAX_MEALS_PER_ROUTE ) {
+			if( $numMeals > MAX_MEALS_PER_ROUTE ) {
 				// Put it back on and go to the next iteration
 				array_push( $nodesArray, $node );
 				break;
