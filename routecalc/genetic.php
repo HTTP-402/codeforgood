@@ -221,10 +221,9 @@ $cursor = $clusters->find();
 $services = array();
 $index = 0;
 foreach($cursor as $cluster){
-	$services[$index] = $db->service->find(array("_id"=>$cluster[1]));
-	$index++;
+	$services_unsplit = $db->service->find();
 }
-print_r($services);
+var_dump($services_unsplit);
 $conn->close();
 
 
