@@ -21,7 +21,7 @@ try {
                 // loop over the results
                 foreach ($cursor as $obj)
                 {
-                    echo $obj;    
+                    print_r($obj);    
                 }
   
         }
