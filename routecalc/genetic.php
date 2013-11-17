@@ -202,7 +202,7 @@ $cursor = $clusters->find();
 // Find the nodes
 $services = array();
 foreach($cursor as $cluster){
-	$services[] = $db->service->findOne(array("_id"=>$cluster[1])));
+	$services[] = $db->service->findOne(array("_id"=>$cluster[1]));
 }
 
 
