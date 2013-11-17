@@ -170,7 +170,7 @@ function calcRoute() {
 { "_id" : ObjectId("5288886719142d15233c9870"), "Nickname" : "Steph", "Status
 (onlyDeliverToOn-service)" : "On-Service", "PrimaryPostalCode" : "E3 3GH", "Location" : { "lat" : "51.530775", "lng" : "-0.029351" }, "NoMeals"                                             : "1", "MealType" : [  "African/Afro-Caribbean" ], "BookingID" : [  "500A000000F3zzV" ], "Comments" : [  "No pork; High energy and high density                                             food" ], "Kitchen" : "", "RouteAndCode" : "", "Birthdate" : "08/11/1991", "Cake?" : "No", "NotesFromKitchen" : "" } ];
   
-  
+
   var start = waypoints[0]; //start at selected kitchen, first node of route
   var end = waypoints[waypoints.length-1]; //end at last point in selected route
   
@@ -183,6 +183,7 @@ function calcRoute() {
       stopover: true
     });
 	}
+	alert(waypoints);
   var request = {
       origin:start,
       destination:end,
