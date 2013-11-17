@@ -60,17 +60,16 @@ function calcRoute() {
 </form>						<div class="menu-main-menu-container"><ul id="menu-main-menu" class="nav-menu-primary"><li id="menu-item-30" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children has-children menu-item-30"><a href="http://localhost.com/jobify/jobs/">Kitchens</a>
 <ul class="sub-menu" onclick="updateroutes();">
 	<!--populate with kitchens from database--> 
-    <li id="0" ><a>Albrighton Community Centre</a></li>
-	<li id="1" ><a>Acorn House</a></li>
-	<li id="2" ><a>Highgate Centre</a></li>
-	
-
+    <li id="0"><a>Albrighton Community Centre</a></li>
+	<li id="1"><a>Acorn House</a></li>
+	<li id="2"><a>Highgate Centre</a></li>
 </ul>
 </li>
 
 <li id="menu-item-1783" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children has-children menu-item-1783"><a href="#">Routes</a>
 <ul id="routes" class="sub-menu" onclick="calcRoute();>
 	<!--populate with route options per kitchen, with script to auto-update-->
+	<li></li>
 </ul>
 </li>
 <li id="menu-item-2541" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2541"><a href="http://localhost.com/jobify/testimonials/">Uploads</a></li>
@@ -86,29 +85,7 @@ function calcRoute() {
 		
 			<div id="map-canvas-wrap">
 								<div class="map-filter animated fadeInUp">
-					<form class="live-map" method="post" action="http://demo.astoundify.com/jobify/job/user-experience-designer-lead-systems-analyst/">
-						<div class="search_jobs">
-							
-							<div class="search_keywords">
-								<label for="search_keywords">Keywords</label>
-								<input type="text" name="search_keywords" id="search_keywords" placeholder="All Jobs" />
-							</div>
-							<div class="search_location">
-								<label for="search_location">Location</label>
-								<input type="text" name="search_location" id="search_location" placeholder="Any Location" />
-							</div>
-															<div class="search_category">
-									<label for="search_category">Category</label>
-									<select name="search_category" id="search_category">
-										<option value="">All Job Categories</option>
-																					<option value="design">Design</option>
-																					<option value="developement">Developement</option>
-																			</select>
-								</div>
-							
-								<input type="submit" name="submit" value="Search" />
-						</div>
-					</form>
+					
 				</div>
 				
 				<div id="jobify-map-canvas"></div>
